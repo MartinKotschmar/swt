@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## WebJar
+
+The project contains a script to build a so called WebJar which contains the resources `npm run build` generates. To
+build the WebJar artifact you need to have Maven set up on your machine. Run `mvn install` to build and deploy the
+artifact to your local repository.
