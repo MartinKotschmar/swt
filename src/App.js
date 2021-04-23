@@ -4,6 +4,7 @@
 
 
 import './App.css';
+import Configurator from "./components/Layout/Body/screens/ConfiguratorScreen/Configurator";
 
 function App() {
     return (
@@ -19,8 +20,7 @@ function App() {
                     </div>
                 </div>
                 <div className="body">
-                    <div className="bierkonfigurator">
-                        <h2>BierKonfigurator</h2>
+                    <Configurator>
                         <div className="bierkonfigurator-panel">
                             <div className="fortschrittsbalken"/>
                             <div className="auswahldingsi">
@@ -28,18 +28,19 @@ function App() {
                                 <div className="auswahl-flasche"/>
                             </div>
                         </div>
+                    </Configurator>
 
-                    </div>
                 </div>
-                <div className="footer">
-                    <div className="banner"/>
-                    <div className="nav-footer">
-                        <a href="#">Impressum</a>
-                        <a href="#">Datenschutzerklärung</a>
-                    </div>
+            </div>
+            <div className="footer">
+                <div className="banner"/>
+                <div className="nav-footer">
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutzerklärung</a>
                 </div>
             </div>
         </div>
+
     );
 }
 
