@@ -3,28 +3,37 @@
 // primary-orange: #DA7817
 
 import './App.css';
-import {Link, Route} from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 import MainHeader from "./components/Layout/Header/MainHeader";
 import ConfiguratorScreen from "./components/Layout/Body/screens/ConfiguratorScreen";
 import Datenschutzerklaerung from "./components/Layout/Body/screens/Datenschutzerklärung";
 import Impressum from "./components/Layout/Body/screens/Impressum";
+import React from "react";
+import StepDetails
+    from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/StepDetails";
 
 function App() {
     return (
         <div className="App">
-            <Route path='bier-konfigurator'>
-                <ConfiguratorScreen/>
-            </Route>
-            <Route path='datenschutzerklärung'>
-                <Datenschutzerklaerung/>
-            </Route>
-            <Route path='impressum'>
-                <Impressum/>
-            </Route>
+            <MainHeader/>
+            <Switch>
+                <Route path='/bier-konfigurator'>
+                    <ConfiguratorScreen/>
+                </Route>
+                <Route path='/datenschutzerklaerung' exact>
+                    <Datenschutzerklaerung/>
+                </Route>
+                <Route path='/impressum' exact>
+                    <Impressum/>
+                </Route>
 
+            </Switch>
+            {/*Routes for beer-configurator steps:*/}
+            <Route path='/bier-konfigurator/:stepId'>
+                <StepDetails/>
+            </Route>
             <div className="PageWrapper">
-                <MainHeader/>
-                <div className="header">
+                {/*<div className="header">
                     <div className="logo"/>
                     <div className="navigation">
                         <a href="#">Bierkonfigurator</a>
@@ -32,8 +41,8 @@ function App() {
                         <a href="#">Login</a>
                         <a href="#">Warenkorb</a>
                     </div>
-                </div>
-                <div className="body">
+                </div>*/}
+                {/*<div className="body">
                     <div className="bierkonfigurator">
                         <h2>BierKonfigurator</h2>
                         <div className="bierkonfigurator-panel">
@@ -45,7 +54,7 @@ function App() {
                         </div>
 
                     </div>
-                </div>
+                </div>*/}
                 <div className="footer">
                     <div className="banner"/>
                     <div className="nav-footer">

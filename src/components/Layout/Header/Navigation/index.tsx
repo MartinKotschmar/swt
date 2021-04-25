@@ -1,23 +1,22 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Navigation = () => {
     return (
         <nav>
             <ul>
                 <li>
-                    <Link to='/bier-konfigurator'>Bier-Konfigurator</Link>
+                    <NavLink activeClassName={'active'} to='/bier-konfigurator'>Bier-Konfigurator</NavLink>
                 </li>
                 <li>
-                    <Link to='/datenschutzerklaerung'>Datenschutzerklärung</Link>
+                    <NavLink to='/datenschutzerklaerung'>Datenschutzerklärung</NavLink>
                 </li>
                 <li>
-                    <Link to='/impressum'>Impressum</Link>
+                    <NavLink to='/impressum'>Impressum</NavLink>
                 </li>
             </ul>
         </nav>
     );
-
 };
 
 export default Navigation;

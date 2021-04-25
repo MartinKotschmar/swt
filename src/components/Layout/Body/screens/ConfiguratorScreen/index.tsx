@@ -1,8 +1,17 @@
 import React from 'react';
+import ConfigurationPanel from "./BierKonfigurator/Configuration/ConfigurationPanel";
+import ConfigurationBottle from "./BierKonfigurator/Configuration/ConfigurationBottle";
+import './index.css';
 
 const ConfiguratorScreen = () =>{
     return(
-        <h2>ConfiguratorScreen</h2>
+        <section>
+        <h1>ConfiguratorScreen</h1>
+            <div className={'flex-wrapper'}>
+                <ConfigurationPanel/>
+                <ConfigurationBottle/>
+            </div>
+        </section>
     )
 };
 
