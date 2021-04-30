@@ -8,12 +8,13 @@ import MainHeader from "./components/Layout/Header/MainHeader";
 import ConfiguratorScreen from "./components/Layout/Body/screens/ConfiguratorScreen";
 import Datenschutzerklaerung from "./components/Layout/Body/screens/Datenschutzerklärung";
 import Impressum from "./components/Layout/Body/screens/Impressum";
-import React from "react";
+import React, {useState} from "react";
 import StepDetails
     from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/StepDetails";
+import AgeCheckModal from "./components/Layout/Body/overlays/AgeCheckModal";
 
 function App() {
-    return (
+      return (
         <div className="App">
             <MainHeader/>
             <Switch>
@@ -33,6 +34,7 @@ function App() {
                 <StepDetails/>
             </Route>
             <div className="PageWrapper">
+                <AgeCheckModal active={true}/>
                 {/*<div className="header">
                     <div className="logo"/>
                     <div className="navigation">

@@ -1,0 +1,26 @@
+.modalOverlay{
+    z-index: 10;
+    background-color: #fff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 85%;
+    height: 15rem;
+    display: none;
+}
+
+.modalOverlay.active{
+    display: block;
+}
+
+.flex-2{
+    display: flex;
+    flex: 12;
+    flex-direction: row;
+}
+
+.flex-2 * {
+    flex: 6;
+}

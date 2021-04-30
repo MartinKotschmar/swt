@@ -1,11 +1,11 @@
 import React from 'react';
 import Navigation from "../Navigation";
 import Logo from "../Logo";
-import './index.css';
+import classes from './index.module.css';
 
 const MainHeader = () => {
     return (
-        <header className={"header"}>
+        <header className={classes.header}>
             <Logo/>
             <Navigation/>
         </header>
