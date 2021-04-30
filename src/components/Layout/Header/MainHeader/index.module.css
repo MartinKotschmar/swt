@@ -1,8 +1,7 @@
 .header {
     width: 80%;
-    height: 8rem;
-    background-color: #044599;
-    padding: 0 10%;
+    min-height: 8rem;
+    padding: 2rem 10%;
 }
 
 .header h2{
@@ -11,6 +10,7 @@
 
 .header nav {
     height: 100%;
+    margin-top: 50px
 }
 
 .header ul {
@@ -40,4 +40,9 @@
     color: #95bcf0;
     padding-bottom: 0.25rem;
     border-bottom: 4px solid #95bcf0;
+}
+
+.logo-wrapper{
+    width: 100%;
+    background-color: white;
 }
