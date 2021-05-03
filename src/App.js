@@ -34,7 +34,7 @@ function App() {
                 <StepDetails/>
             </Route>
             <div className="PageWrapper">
-                <AgeCheckModal active={true}/>
+                <AgeCheckModal active={false}/>
                 {/*<div className="header">
                     <div className="logo"/>
                     <div className="navigation">

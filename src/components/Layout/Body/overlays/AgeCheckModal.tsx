@@ -10,7 +10,7 @@ const AgeCheckModal = (props: any) => {
     const modalPortalRoot = document.getElementById('overlay-root');
 
     const leaveWebsite = () =>{
-        window.open('https://google.com', '_self');
+        window.history.back();
     }
 
     const onClick = (userInput:string) =>{

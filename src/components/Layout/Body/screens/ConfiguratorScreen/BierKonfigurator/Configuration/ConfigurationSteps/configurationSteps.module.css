@@ -1,0 +1,28 @@
+.dot {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    margin: 4px;
+    border-radius: 50%;
+}
+
+
+.finished{
+    background-color: #1e70ab;
+    border: 1px solid #1e70ab;
+}
+
+.unfinished{
+    background-color: rgb(180,180,180);
+    border: 1px solid rgb(180,180,180);
+}
+
+.connectionLine {
+
+    position: relative;
+    width: 100%;
+    height: 1px;
+    margin: 6px 0 8px 0;
+    border-radius: 10%;
+}
