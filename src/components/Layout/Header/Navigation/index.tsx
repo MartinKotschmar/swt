@@ -7,13 +7,13 @@ const Navigation = () => {
         <nav className={classes.navigation}>
             <ul>
                 <li>
-                    <NavLink activeClassName={'active'} to='/bier-konfigurator'>Bierkonfigurator</NavLink>
+                    <NavLink activeClassName={'active'} to='/beer-configurator'>Bierkonfigurator</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/datenschutzerklaerung'>Datenschutzerklärung</NavLink>
+                    <NavLink to='/data-protection'>Datenschutzerklärung</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/impressum'>Impressum</NavLink>
+                    <NavLink to='/imprint'>Impressum</NavLink>
                 </li>
             </ul>
         </nav>

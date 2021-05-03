@@ -18,19 +18,19 @@ function App() {
         <div className="App">
             <MainHeader/>
             <Switch>
-                <Route path='/bier-konfigurator'>
+                <Route path='/beer-configurator'>
                     <ConfiguratorScreen/>
                 </Route>
-                <Route path='/datenschutzerklaerung' exact>
+                <Route path='/data-protection' exact>
                     <Datenschutzerklaerung/>
                 </Route>
-                <Route path='/impressum' exact>
+                <Route path='/imprint' exact>
                     <Impressum/>
                 </Route>
 
             </Switch>
             {/*Routes for beer-configurator steps:*/}
-            <Route path='/bier-konfigurator/:stepId'>
+            <Route path='/beer-configurator/:stepId'>
                 <StepDetails/>
             </Route>
             <div className="PageWrapper">
@@ -60,8 +60,8 @@ function App() {
                 <div className="footer">
                     <div className="banner"/>
                     <div className="nav-footer">
-                        <Link to='/impressum'>Impressum</Link>
-                        <Link to='/datenschutzerklärung'>Datenschutzerklärung</Link>
+                        <Link to='/imprint'>Impressum</Link>
+                        <Link to='/data-protection'>Datenschutzerklärung</Link>
                     </div>
                 </div>
             </div>

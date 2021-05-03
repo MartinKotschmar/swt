@@ -5,9 +5,9 @@ const ConfigurationSteps = () => {
     return (
         <section>
             <ul>
-                <li><Link to='/bier-konfigurator/schritt-1'>Geschmack</Link></li>
-                <li><Link to='/bier-konfigurator/schritt-2'>Etikett</Link></li>
-                <li><Link to='/bier-konfigurator/schritt-3'>Größe</Link></li>
+                <li><Link to='/beer-configurator/step-1'>Geschmack</Link></li>
+                <li><Link to='/beer-configurator/step-2'>Etikett</Link></li>
+                <li><Link to='/beer-configurator/step-3'>Größe</Link></li>
             </ul>
         </section>
     )
