@@ -5,67 +5,8 @@ import classes from './configurationSteps.module.css';
 
 const ConfigurationSteps = (props: any) => {
 
-    const [navPoints, setNavPoints] = useState([
-            {
-                name: 'etikett',
-                status: 1,
-                linkText: 'step-1',
-                hoverText: 'etikett',
-                showHover: false
-            },
-            {
-                name: 'Biersorte',
-                status: 0,
-                linkText: 'step-2',
-                hoverText: 'Biersorte',
-                showHover: false
+    const {navPoints, changeActiveMarker, showHoverText, hideHoverText}: any = props;
 
-            },
-            {
-                name: 'Geschmack',
-                status: 0,
-                linkText: 'step-3',
-                hoverText: 'Geschmack',
-                showHover: false
-
-            },
-            {
-                name: 'Größe',
-                status: 0,
-                linkText: 'step-4',
-                hoverText: 'Größe',
-                showHover: false
-
-            },
-        ]
-    )
-
-
-    const changeActiveMarker = (nextActiveStep: number) => {
-        let temp: any = [...navPoints];
-        temp.forEach((point: any, i: number) => {
-            if (i <= nextActiveStep) {
-                temp[i].status = 1;
-            }
-        });
-        setNavPoints(temp);
-    }
-
-    const showHoverText = (element: number) => {
-        if (element !== props.active) {
-            let temp: any = [...navPoints];
-            temp[element].showHover = true;
-            setNavPoints(temp);
-        }
-
-    };
-
-    const hideHoverText = (element: number) => {
-        let temp: any = [...navPoints];
-        temp[element].showHover = false;
-        setNavPoints(temp);
-
-    }
 
     /*
     * if the user input in the panel forms isn't valid (incomplete) then make the dot red and if the user hasn't chosen anything make it grey.
@@ -75,9 +16,9 @@ const ConfigurationSteps = (props: any) => {
 * */
     return (
         <section>
-            <ul style={{padding:0}}>{/*if active-> no hover and show name, inactive-> hover, but no name*/}
+            <ul style={{padding: 0}}>{/*if active-> no hover and show name, inactive-> hover, but no name*/}
                 <div className={`${classes.flex} ${classes.noListStyle} ${classes.width100}`}>
-                    {navPoints.map((point, i) => {
+                    {navPoints.map((point: any, i: number) => {
                         return (
                             <li className={classes.flex_4} key={i}>
                                 <div
