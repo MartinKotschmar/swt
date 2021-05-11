@@ -82,6 +82,14 @@ const ConfigurationBottle = () => {
             }
         }
 
+        const enterText = (event: any) => {
+            // @ts-ignore
+            const bottlePicHeight = document.getElementById('bottlePic').offsetHeight;
+            // @ts-ignore
+            const bottlePicWidth = document.getElementById('bottlePic').offsetWidth;
+            // @ts-ignore
+            setBottle({...bottle, enteredText: event.target.value, bottleHeight: bottlePicHeight, bottleWidth: bottlePicWidth});
+        }
 
         return (
 
@@ -94,6 +102,8 @@ const ConfigurationBottle = () => {
                     <button onClick={bottleColorChangeHandlerRight} className={classes.button}>next</button>
                     <h3>Size {bottle.size}</h3>
                     <button onClick={bottleSizeToggle} className={classes.button}>CHANGE SIZE</button>
+                    <h3>Enter Text here</h3>
+                    <form><input type="text" onChange={enterText}/></form>
                 </div>
             </div>
         )
