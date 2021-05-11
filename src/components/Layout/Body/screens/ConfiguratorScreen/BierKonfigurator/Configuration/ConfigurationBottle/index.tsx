@@ -67,16 +67,16 @@ const ConfigurationBottle = () => {
 
             if (result.sizeIsNormal) {
                 result.sizeIsNormal = false
-                if (result.color === 'green')  result.usedGraphic = bottleGreenSmall
-                if (result.color === 'brown')  result.usedGraphic = bottleBrownSmall
-                if (result.color === 'white')  result.usedGraphic = bottleWhiteSmall
+                if (result.color === 'green') result.usedGraphic = bottleGreenSmall
+                if (result.color === 'brown') result.usedGraphic = bottleBrownSmall
+                if (result.color === 'white') result.usedGraphic = bottleWhiteSmall
                 result.size = '0,33L'
                 return setBottle(result);
             } else {
                 result.sizeIsNormal = true
-                if (result.color === 'green')  result.usedGraphic = bottleGreenNormal
-                if (result.color === 'brown')  result.usedGraphic = bottleBrownNormal
-                if (result.color === 'white')  result.usedGraphic = bottleWhiteNormal
+                if (result.color === 'green') result.usedGraphic = bottleGreenNormal
+                if (result.color === 'brown') result.usedGraphic = bottleBrownNormal
+                if (result.color === 'white') result.usedGraphic = bottleWhiteNormal
                 result.size = '0,5L'
                 return setBottle(result);
             }
