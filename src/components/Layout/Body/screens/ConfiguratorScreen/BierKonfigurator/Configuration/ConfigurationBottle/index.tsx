@@ -22,11 +22,6 @@ const ConfigurationBottle = () => {
             bottleHeight: ''
         })
 
-        const [headings, setHeadings] = useState({
-            colorChange: 'Change Color'
-        })
-
-
         const bottleColorChangeHandlerRight = () => {
             switch (bottle.color) {
                 case 'green': {
