@@ -1,0 +1,23 @@
+.bottleSize {
+    width: 100px;
+    height: auto;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.button {
+    width: 50%;
+}
+
+.renderText {
+    width: 90%;
+    max-height: 100px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
