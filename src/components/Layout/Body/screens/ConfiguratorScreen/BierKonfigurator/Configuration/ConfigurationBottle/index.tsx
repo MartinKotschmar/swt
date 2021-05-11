@@ -97,7 +97,7 @@ const ConfigurationBottle = () => {
                 <img id='bottlePic' className={classes.bottleSize} src={bottle.usedGraphic} alt='bottle of beer'/>
                 <div className={`${classes['renderText']}  ${{bottom: bottle.bottleHeight}}`}><p>{bottle.enteredText}</p></div>
                 <div>
-                    <h3>{headings.colorChange}</h3>
+                    <h3>Current Color "{bottle.color}"</h3>
                     <button onClick={bottleChangeHandlerLeft} className={classes.button}>previous</button>
                     <button onClick={bottleColorChangeHandlerRight} className={classes.button}>next</button>
                     <h3>Size {bottle.size}</h3>
