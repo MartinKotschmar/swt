@@ -94,7 +94,7 @@ const ConfigurationBottle = () => {
         return (
 
             <div className={classes.flex}>
-                <img className={classes.bottleSize} src={bottle.usedGraphic}/>
+                <img id='bottlePic' className={classes.bottleSize} src={bottle.usedGraphic} alt='bottle of beer'/>
                 <div className={`${classes['renderText']}  ${{bottom: bottle.bottleHeight}}`}><p>{bottle.enteredText}</p></div>
                 <div>
                     <h3>{headings.colorChange}</h3>
