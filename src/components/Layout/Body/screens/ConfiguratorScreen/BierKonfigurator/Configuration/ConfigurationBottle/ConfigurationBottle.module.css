@@ -13,3 +13,11 @@
 .button {
     width: 50%;
 }
+
+.renderText {
+    width: 90%;
+    max-height: 100px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
