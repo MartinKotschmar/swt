@@ -24,20 +24,15 @@ const TypePanel = () => {
     <div>
       <h2>Type of Beer Panel</h2>
       <div className={classes.container}>
-        {typeList.map((x, value) => {
-          return (
-            <label className={classes.label}>
-              <input
-                className={classes.input}
-                key={value}
-                type="radio"
-                name="typePanelInput"
-                value={value}
-              ></input>
-              {typeList[value]}
-            </label>
-          );
-        })}
+        <select>
+          {typeList.map((x, value) => {
+            return (
+              <option className={classes.input} key={value} value={value}>
+                {typeList[value]}
+              </option>
+            );
+          })}
+        </select>
       </div>
       <br />
       <div>
