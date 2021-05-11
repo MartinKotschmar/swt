@@ -16,6 +16,10 @@ const ConfigurationBottle = () => {
             sizeIsNormal: true,
             color: 'brown',
             usedGraphic: bottleBrownNormal,
+            size: '0,5L',
+            enteredText: '',
+            bottleWidth: '',
+            bottleHeight: ''
         })
 
         const [headings, setHeadings] = useState({
@@ -71,12 +75,14 @@ const ConfigurationBottle = () => {
                 if (result.color === 'green')  result.usedGraphic = bottleGreenSmall
                 if (result.color === 'brown')  result.usedGraphic = bottleBrownSmall
                 if (result.color === 'white')  result.usedGraphic = bottleWhiteSmall
+                result.size = '0,33L'
                 return setBottle(result);
             } else {
                 result.sizeIsNormal = true
                 if (result.color === 'green')  result.usedGraphic = bottleGreenNormal
                 if (result.color === 'brown')  result.usedGraphic = bottleBrownNormal
                 if (result.color === 'white')  result.usedGraphic = bottleWhiteNormal
+                result.size = '0,5L'
                 return setBottle(result);
             }
         }
@@ -86,11 +92,12 @@ const ConfigurationBottle = () => {
 
             <div className={classes.flex}>
                 <img className={classes.bottleSize} src={bottle.usedGraphic}/>
+                <div className={`${classes['renderText']}  ${{bottom: bottle.bottleHeight}}`}><p>{bottle.enteredText}</p></div>
                 <div>
                     <h3>{headings.colorChange}</h3>
                     <button onClick={bottleChangeHandlerLeft} className={classes.button}>previous</button>
                     <button onClick={bottleColorChangeHandlerRight} className={classes.button}>next</button>
-                    <h3>SIZECHANGE</h3>
+                    <h3>Size {bottle.size}</h3>
                     <button onClick={bottleSizeToggle} className={classes.button}>CHANGE SIZE</button>
                 </div>
             </div>
