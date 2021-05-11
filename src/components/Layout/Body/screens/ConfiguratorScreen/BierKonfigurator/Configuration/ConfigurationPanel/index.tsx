@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ConfigurationSteps from "../ConfigurationSteps";
 import classes from "./ConfigurationPanel.module.css";
 import IngredientsPanel from "./IngredientsPanel";
+import {Link} from "react-router-dom";
 
 const ConfigurationPanel = () => {
   const [active, setActive] = useState(0);
@@ -74,6 +75,8 @@ const ConfigurationPanel = () => {
   return (
     <section className={classes.mh_20}>
       <h2>Configuration-Panel</h2>
+
+      {/*Panel navigation*/}
       <ConfigurationSteps
         active={active}
         changeActive={changeActive}
@@ -84,30 +87,32 @@ const ConfigurationPanel = () => {
         showHoverText={showHoverText}
       />
 
+      {/*Panel content*/}
       <IngredientsPanel />
 
+      {/*Forward/Backward buttons (Panel navigation)*/}
       <div
         className={classes.flex}
         style={{ width: "100%", padding: "0px 4px" }}
       >
         <div style={{ width: "100%" }}>
           {active !== 0 ? (
-            <button
+              <Link to={'/beer-configurator/' + navPoints[active-1].linkText}
               className={`${classes.btn} ${classes.btn_left}`}
               onClick={() => onClick(active - 1)}
             >
               Zurück
-            </button>
+              </Link>
           ) : null}
         </div>
         <div style={{ width: "100%" }}>
           {active !== 3 ? (
-            <button
+              <Link to={'/beer-configurator/' + navPoints[active+1].linkText}
               className={`${classes.btn} ${classes.btn_right}`}
               onClick={() => onClick(active + 1)}
             >
               Weiter
-            </button>
+              </Link>
           ) : null}
         </div>
       </div>
