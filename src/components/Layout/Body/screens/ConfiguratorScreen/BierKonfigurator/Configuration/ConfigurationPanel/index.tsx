@@ -81,7 +81,6 @@ const ConfigurationPanel = () => {
         active={active}
         changeActive={changeActive}
         navPoints={navPoints}
-        setNavPoints={setNavPoints}
         changeActiveMarker={changeActiveMarker}
         hideHoverText={hideHoverText}
         showHoverText={showHoverText}

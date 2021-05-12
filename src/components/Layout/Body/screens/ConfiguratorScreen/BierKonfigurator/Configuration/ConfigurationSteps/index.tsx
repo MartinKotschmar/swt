@@ -5,7 +5,7 @@ import classes from './configurationSteps.module.css';
 
 const ConfigurationSteps = (props: any) => {
 
-    const {navPoints, changeActiveMarker, showHoverText, hideHoverText}: any = props;
+    const {navPoints, changeActiveMarker, showHoverText, hideHoverText, active, changeActive}: any = props;
 
 
     /*
@@ -37,7 +37,7 @@ const ConfigurationSteps = (props: any) => {
                                               hideHoverText(i);
                                           }}
                                           onClick={() => {
-                                              props.changeActive(i);
+                                              changeActive(i);
                                               changeActiveMarker(i);
                                               hideHoverText(i);
                                           }}
@@ -51,7 +51,7 @@ const ConfigurationSteps = (props: any) => {
                                             className={`${classes.connectionLine2} ${classes.transparent}`}
                                             style={{width: "100%"}}/>}
                                 </div>
-                                <div>{i === props.active ? point.name : null}</div>
+                                <div>{i === active ? point.name : null}</div>
                             </li>
                         )
                     })}
