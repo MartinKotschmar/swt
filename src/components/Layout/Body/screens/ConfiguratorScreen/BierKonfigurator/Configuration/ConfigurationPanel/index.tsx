@@ -74,8 +74,6 @@ const ConfigurationPanel = () => {
 
   return (
     <section className={classes.mh_20}>
-      <h2>Configuration-Panel</h2>
-
       {/*Panel navigation*/}
       <ConfigurationSteps
         active={active}
