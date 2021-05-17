@@ -5,6 +5,32 @@
     justify-content:space-between;
 }
 
+.btn{
+    border: 1px solid #121212;
+    color: #121212;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    text-decoration: none;
+
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    color: rgba(0,0,0,.85);
+    cursor: pointer;
+    display: inline-block;
+
+    line-height: 1.5715;
+    padding: 4px 15px;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    transition: all .15s cubic-bezier(.645,.045,.355,1);
+}
+
+.btn:hover{
+    color: #ed8118;
+    border-color: #ed8118;
+}
+
 .btn_left{
     float: left;
 }
