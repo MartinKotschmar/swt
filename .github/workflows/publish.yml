@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: npm run build
+      - run: CI='' npm run build
       - name: Use AdoptOpenJDK 1.8
         uses: actions/setup-java@v2
         with:
