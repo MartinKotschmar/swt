@@ -6,7 +6,6 @@ import './index.css';
 const ConfiguratorScreen = () =>{
     return(
         <section>
-        <h1>ConfiguratorScreen</h1>
             <div className={'flex-wrapper'}>
                 <ConfigurationPanel/>
                 <ConfigurationBottle/>
