@@ -1,0 +1,22 @@
+name: Publish CI success
+
+on:
+  workflow_run:
+    workflows: ["Node 14.x CI with NPM"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Dispatch success event
+        run: >-
+          curl --silent --show-error --fail
+          -X POST
+          -H "Accept: application/vnd.github.v3+json"
+          -H "Authorization: token ${{ secrets.BACKEND_AUTH_TOKEN }}"
+          ${{ secrets.BACKEND_DISPATCH_URL }}
+          -d '{"event_type":"ci_succeeded"}'
