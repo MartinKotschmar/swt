@@ -27,10 +27,7 @@ function App() {
           <Impressum />
         </Route>
       </Switch>
-      {/*Routes for beer-configurator steps:*/}
-      <Route path="/beer-configurator/:stepId">
-        <StepDetails />
-      </Route>
+      <Route path="/beer-configurator/:stepId"></Route>
       <div className="PageWrapper">
         <AgeCheckModal active={false} />
         {/*<div className="header">
