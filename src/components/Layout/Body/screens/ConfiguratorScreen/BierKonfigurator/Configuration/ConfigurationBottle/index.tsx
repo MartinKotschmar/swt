@@ -18,8 +18,6 @@ const ConfigurationBottle = () => {
             usedGraphic: bottleBrownNormal,
             size: '0,5L',
             enteredText: '',
-            bottleWidth: '',
-            bottleHeight: ''
         })
 
         const bottleColorChangeHandlerRight = () => {
@@ -83,27 +81,55 @@ const ConfigurationBottle = () => {
         }
 
         const enterText = (event: any) => {
-            // @ts-ignore
-            const bottlePicHeight = document.getElementById('bottlePic').offsetHeight;
-            // @ts-ignore
-            const bottlePicWidth = document.getElementById('bottlePic').offsetWidth;
-            // @ts-ignore
-            setBottle({...bottle, enteredText: event.target.value, bottleHeight: bottlePicHeight, bottleWidth: bottlePicWidth});
+            const {value, maxLength} = event.target;
+
+            setBottle({
+                ...bottle,
+                enteredText: event.target.value,
+            });
+            // console.log(bottle.bottleWidth)
         }
+
 
         return (
 
-            <div className={classes.flex}>
-                <img id='bottlePic' className={classes.bottleSize} src={bottle.usedGraphic} alt='bottle of beer'/>
-                <div className={`${classes['renderText']}  ${{bottom: bottle.bottleHeight}}`}><p>{bottle.enteredText}</p></div>
-                <div>
-                    <h3>Current Color "{bottle.color}"</h3>
-                    <button onClick={bottleChangeHandlerLeft} className={classes.button}>previous</button>
-                    <button onClick={bottleColorChangeHandlerRight} className={classes.button}>next</button>
-                    <h3>Size {bottle.size}</h3>
-                    <button onClick={bottleSizeToggle} className={classes.button}>CHANGE SIZE</button>
-                    <h3>Enter Text here</h3>
-                    <form><input type="text" onChange={enterText}/></form>
+            <div>
+                <div className={classes.bottleWrapper}>
+                    <div className={classes.bottlePic}>
+                        <img src={bottle.usedGraphic} alt='a bottle of beer'/>
+                        <div className={bottle.sizeIsNormal ? classes.renderText : classes.renderTextBottleSmall}>
+                            <p>{bottle.enteredText}</p>
+                        </div>
+                        <div className={classes.buttonWrapper}>
+                            <button onClick={bottleChangeHandlerLeft}
+                                    className={`${classes.button} ${classes.buttonLeft}`}>
+                                <span>zurück</span>
+                            </button>
+                            <button onClick={bottleColorChangeHandlerRight}
+                                    className={`${classes.button} ${classes.buttonRight}`}>
+                                <span>vor</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className={classes.bottlePanelWrapper}>
+                    <form>
+                        <input type="text"
+                               maxLength={24}
+                               onChange={enterText}
+                               placeholder='Ihr Labeltext...'/>
+                    </form>
+                    <div className={classes.changeSizeWrapper}>
+                        <div>
+                            <p>Size {bottle.size}</p>
+                            <button onClick={bottleSizeToggle}
+                                    className={`${classes.button} ${bottle.sizeIsNormal ? classes.minus : classes.plus}`}></button>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         )
