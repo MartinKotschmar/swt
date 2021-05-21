@@ -19,15 +19,19 @@ const FlavourList = () => {
       <div>
         <h2>Geschmack</h2>
         <div className={classes.container}>
-          <select>
-            {flavours.map((x: any, value: any) => {
-              return (
-                <option className={classes.input} key={value} value={value}>
-                  {flavours[value]}
-                </option>
-              );
-            })}
-          </select>
+          {flavours.map((x: any, value: any) => {
+            return (
+              <label>
+                <input
+                  className={classes.input}
+                  key={x}
+                  name="flavourListInput"
+                  type="radio"
+                ></input>
+                {flavours[value]}
+              </label>
+            );
+          })}
         </div>
       </div>
     </div>

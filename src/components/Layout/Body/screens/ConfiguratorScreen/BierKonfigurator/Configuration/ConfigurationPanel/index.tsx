@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import ConfigurationSteps from "../ConfigurationSteps";
 import classes from "./ConfigurationPanel.module.css";
 import IngredientsPanel from "./IngredientsPanel";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import StepDetails from "../StepDetails";
 
 const ConfigurationPanel = () => {
   const [active, setActive] = useState(0);
-
   const [navPoints, setNavPoints] = useState([
     {
       name: "Biersorte",
@@ -14,6 +14,7 @@ const ConfigurationPanel = () => {
       linkText: "step-1",
       hoverText: "Biersorte",
       showHover: false,
+      category: "beertype",
     },
     {
       name: "Geschmack",
@@ -21,6 +22,7 @@ const ConfigurationPanel = () => {
       linkText: "step-2",
       hoverText: "Geschmack",
       showHover: false,
+      category: "flavour",
     },
     {
       name: "Flasche",
@@ -28,6 +30,7 @@ const ConfigurationPanel = () => {
       linkText: "step-3",
       hoverText: "Flasche",
       showHover: false,
+      category: "",
     },
     {
       name: "Etikett",
@@ -35,6 +38,7 @@ const ConfigurationPanel = () => {
       linkText: "step-4",
       hoverText: "Etikett",
       showHover: false,
+      category: "",
     },
   ]);
 
@@ -85,8 +89,8 @@ const ConfigurationPanel = () => {
       />
 
       {/*Panel content*/}
-      <IngredientsPanel />
-
+      {/*<IngredientsPanel />*/}
+      <StepDetails steps={navPoints} />
       {/*Forward/Backward buttons (Panel navigation)*/}
       <div
         className={classes.flex}
@@ -94,22 +98,24 @@ const ConfigurationPanel = () => {
       >
         <div style={{ width: "100%" }}>
           {active !== 0 ? (
-              <Link to={'/beer-configurator/' + navPoints[active-1].linkText}
+            <Link
+              to={"/beer-configurator/" + navPoints[active - 1].linkText}
               className={`${classes.btn} ${classes.btn_left}`}
               onClick={() => onClick(active - 1)}
             >
               Zurück
-              </Link>
+            </Link>
           ) : null}
         </div>
         <div style={{ width: "100%" }}>
           {active !== 3 ? (
-              <Link to={'/beer-configurator/' + navPoints[active+1].linkText}
+            <Link
+              to={"/beer-configurator/" + navPoints[active + 1].linkText}
               className={`${classes.btn} ${classes.btn_right}`}
               onClick={() => onClick(active + 1)}
             >
               Weiter
-              </Link>
+            </Link>
           ) : null}
         </div>
       </div>
