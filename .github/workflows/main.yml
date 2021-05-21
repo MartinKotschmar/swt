@@ -18,9 +18,4 @@ jobs:
       - name: Send succeed event
         uses: wei/curl@v1
         with:
-          args: >
-            -X POST
-            -H "Accept: application/vnd.github.v3+json"
-            -H "Authorization: token ${{ secrets.BACKEND_AUTH_TOKEN }}"
-            ${{ secrets.BACKEND_DISPATCH_URL }}
-            -d '{"event_type":"ci_succeeded"}'
+          args: -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${{ secrets.BACKEND_AUTH_TOKEN }}" ${{ secrets.BACKEND_DISPATCH_URL }} -d '{"event_type":"ci_succeeded"}'
