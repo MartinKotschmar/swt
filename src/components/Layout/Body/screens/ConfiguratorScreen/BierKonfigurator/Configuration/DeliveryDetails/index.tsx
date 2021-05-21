@@ -74,7 +74,11 @@ const DeliveryDetails = () => {
             </label>
           </div>
         </div>
-        <button type="submit" onClick={submitClickHandler}>
+        <button
+          type="submit"
+          className={classes.button}
+          onClick={submitClickHandler}
+        >
           Lieferdetails bestätigen
         </button>
       </form>
