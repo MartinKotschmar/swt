@@ -10,6 +10,7 @@
   height: 15rem;
   display: none;
   align-content: center;
+  padding: 40px 0;
 }
 
 .modalOverlay.active {
@@ -33,6 +34,12 @@
   margin: auto 30px;
   font-weight: 700;
   min-width: 110px;
+}
+
+.button:hover {
+  background-color: #da7817;
+  box-shadow: none;
+  border: 0;
 }
 
 .wrapper {
