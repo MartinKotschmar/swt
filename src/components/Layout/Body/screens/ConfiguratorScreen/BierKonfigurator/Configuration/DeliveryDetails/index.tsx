@@ -18,7 +18,7 @@ const DeliveryDetails = () => {
   };
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <form action="">
         <div className={classes.personal_Details}>
           <label html-for="title">Anrede</label>
