@@ -1,76 +1,96 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import IngredientsList from "../ConfigurationPanel/IngredientsPanel/IngredientsList";
+import OrderOverview from "../OrderOverview";
 
 const StepDetails = (props: any) => {
-  const params: any = useParams();
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [ingredients, setIngredients]: any = useState([]);
-  const [hasFetchedData, setHasFetchedData]: any = useState(false);
+    const params: any = useParams();
+    //   const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [ingredients, setIngredients]: any = useState([]);
+    //   const [hasFetchedData, setHasFetchedData]: any = useState(false);
+    const [content, setContent] = useState(<p>Found no Ingredients.</p>);
+    //const [initialLoading, setInitialLoading] = useState(false);
 
-  async function fetchIngredientsHandler() {
-    for (let i = 0; i <= props.steps.length; i++) {
-      if (props.steps[i] === params.stepId) {
-        setIsLoading(true);
-        setError(null);
+    const {steps} = props;
 
-        try {
-          const category = props.steps[i].category;
-          const response = await fetch(
+    async function fetchAndRenderContent() {
+        for (let i = 0; i < steps.length; i++) {
+            if (steps[i].linkText === params.stepId) {
+                if (steps[i].category !== "") {
+                    const category = steps[i].category;
+                    const ingredients = await fetchCatalog(category);
+                    setIngredients(ingredients);
+                } else if (steps[i] === steps[steps.length - 1]) {
+                    setContent(<OrderOverview onSubmit={props.onSubmit}/>);
+                } else {
+                    setContent(<p>flasche anzeigen und so</p>);
+                }
+            }
+        }
+    }
+
+    async function fetchCatalog(category: string): Promise<any> {
+        const response = await fetch(
             "http://localhost:8080/api/v1/catalog?category=" + category
-          ); /*update to our api*/
-          if (!response.ok) {
+        );
+        if (!response.ok) {
             throw new Error("Something went wrong!");
-          }
+        }
 
-          const data = await response.json();
+        const data = await response.json();
 
-          const transformedIngredients = data.result.map(
-            (ingredientData: any) => {
-              return {
+        return await data.result["_embedded"].map((ingredientData: any) => {
+            return {
                 id: ingredientData.id,
                 title: ingredientData.name,
                 //   category: ingredientData.categories,
                 price: ingredientData.price.amount,
-              };
-            }
-          );
-          setIngredients(transformedIngredients);
-          setHasFetchedData(true);
-        } catch (error) {
-          setError(error.message);
-        }
-        setIsLoading(false);
-      }
+            };
+        });
+        // setIngredients(transformedIngredients);
+        // setHasFetchedData(true);
     }
-  }
 
-  let content = <p>Found no Ingredients.</p>;
+    useEffect((): any => {
+        const fetchIngredients = async () => {
+            // setIsLoading(true);
+            // setError(null);
+            // console.log(steps.length);
+            await fetchAndRenderContent();
+            // setIsLoading(false);
+        };
+        fetchIngredients();
+    }, [params.stepId]);
+    // (!initialLoading)?fetchIngredientsHandler():setInitialLoading(true);
 
-  if (ingredients.length > 0) {
-    content = <IngredientsList ingredients={ingredients} />;
-  }
+    if (ingredients.length > 0) {
+        setContent(
+            <IngredientsList ingredients={ingredients} onChange={props.onChange}/>
+        );
+    }
 
-  if (error) {
-    content = <p>{error}</p>;
-  }
+    //   if (error) {
+    //     setContent(<p>{error}</p>);
+    //   }
 
-  if (isLoading) {
-    content = <p>Loading...</p>;
-  }
-  return (
-    <section>
-      <h4>
-        {ingredients.category
-          ? ingredients.category + ` (${ingredients.price})`
-          : "Found no category."}
-      </h4>
-      <section>{content}</section>
+    //   if (isLoading) {
+    //     setContent(<p>Loading...</p>);
+    //   }
+    return (
+        <section>
+            <h4>
+                {steps[params.stepId.slice(-1) - 1].name
+                    ? steps[params.stepId.slice(-1) - 1].name
+                    // + ` (${ingredients[0].price})`
+                    : "Found no category."}
+                {/*steps[params.id]*/}
+            </h4>
+            <section>{content}</section>
 
-      <p>{params.stepId}</p>
-    </section>
-  );
+            <p>{params.stepId}</p>
+        </section>
+    );
 };
 
 export default StepDetails;

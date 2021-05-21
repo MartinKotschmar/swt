@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import bottleGreenNormal from './bottle-green.png'
 import bottleWhiteNormal from './bottle-white.png'
 import bottleBrownNormal from './bottle-brown.png'

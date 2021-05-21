@@ -7,7 +7,7 @@ const Navigation = () => {
         <nav className={classes.navigation}>
             <ul>
                 <li>
-                    <NavLink activeClassName={'active'} to='/beer-configurator'>Bierkonfigurator</NavLink>
+                    <NavLink activeClassName={'active'} to='/beer-configurator/step-1'>Bierkonfigurator</NavLink>
                 </li>
                 <li>
                     <NavLink to='/data-protection'>Datenschutzerklärung</NavLink>

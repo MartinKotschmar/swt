@@ -36,10 +36,11 @@ const IngredientsList = (props: any) => {
         return (
           <label>
             <input
-              key={props.ingredients.id}
+              key={x.id}
               type="checkbox"
               name={"ingredientsPanelInput" + props.listNumber}
               value={value}
+              onChange={()=> {props.onChange(x.id, value)}}
             ></input>
             {props.ingredients.title}
           </label>
