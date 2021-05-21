@@ -41,7 +41,7 @@ const StepDetails = (props: any) => {
 
         const data = await response.json();
 
-        return await data.result["_embedded"].map((ingredientData: any) => {
+        return data["_embedded"].map((ingredientData: any) => {
             return {
                 id: ingredientData.id,
                 title: ingredientData.name,
