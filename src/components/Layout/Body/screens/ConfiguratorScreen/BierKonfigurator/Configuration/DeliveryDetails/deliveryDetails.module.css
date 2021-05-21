@@ -1,0 +1,15 @@
+.radioOption {
+}
+
+.adress {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.adress_Child {
+  flex: 1 0 50%;
+}
+
+.personal_Details {
+}
