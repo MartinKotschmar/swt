@@ -3,15 +3,28 @@
 
 .adress {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .adress_Child {
-  flex: 1 0 50%;
+  flex: 0 0 25%;
+  text-align: start;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .personal_Details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.personal_Details .input_div {
+  flex: 0 0 25%;
+  padding: 10px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
@@ -29,6 +42,65 @@
 }
 
 .wrapper {
-  margin: 40px;
+  margin: 0 auto;
   min-height: 500px;
+  width: 65%;
+  position: relative;
+}
+
+.label {
+}
+
+.input_long {
+  min-width: 200px;
+}
+
+.input_short {
+  max-width: 120px;
+}
+
+:required:focus:invalid {
+  border-color: red;
+}
+
+.input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.content {
+  margin: 40px 0;
+  position: absolute;
+  padding: 40px 0;
+  height: fit-content;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.personal_Details_Wrapper {
+  margin: 0 auto;
+  flex: 1 0 100%;
+}
+
+.input_div_select {
+  padding: 10px;
+  flex: 0 0 100%;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  max-width: 100px;
+}
+
+.button_wrapper {
+  flex: 1 0 100%;
+  padding: 20px 0;
+}
+
+.adress_Child_short {
+}
+
+.input_wrapper {
+  padding: 20px 0;
 }
