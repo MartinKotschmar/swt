@@ -1,10 +1,17 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 
 const OrderOverview = (props: any) => {
     return (
         <div>
-            <button onClick={props.onSubmit} title="Zum Warenkorb hinzufügen"/>
+            <Link
+                to={"/beer-configurator/" + "step-1"}
+                onClick={() => {
+                    props.onSubmit();
+                    props.setResetValues(true);
+                    props.resetNavPoints();
+                    //todo: show success banner
+                }}>Zum Warenkorb hinzufügen</Link>
         </div>
     )
 };
