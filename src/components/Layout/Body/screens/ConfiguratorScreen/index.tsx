@@ -8,6 +8,9 @@ const ConfiguratorScreen = (props: any) => {
     const [currentOrder, setCurrentOrder]: any = useState([]);
 
     //todo Problem: The state of currentOrder doesn't get updated after setCurrentOrder is called
+    //to test: click a checkbox of the ingredientlist, afterwards the state of currentOrder is logged to the console. Since the order is still empty after clicking a second checkbox
+    // -> setCurrentOrder wasn't invoked correctly in onChange (component where function is called: IngredientItem)
+    //todo same thing happening to the other functions with the same principle of forwarding using props
 
     const onChange = (id: string, value: any) => {
         console.log(currentOrder);
