@@ -5,35 +5,27 @@ import "./index.css";
 
 const ConfiguratorScreen = (props: any) => {
 
-    const [currentOrder, setCurrentOrder]: any = useState([]);
 
-    //todo Problem: The state of currentOrder doesn't get updated after setCurrentOrder is called
-    //to test: click a checkbox of the ingredientlist, afterwards the state of currentOrder is logged to the console. Since the order is still empty after clicking a second checkbox
-    // -> setCurrentOrder wasn't invoked correctly in onChange (component where function is called: IngredientItem)
+    let currentOrder:{ id: string, value: any }[] = [];
     //todo same thing happening to the other functions with the same principle of forwarding using props
 
-    const onChange = (id: string, value: any) => {
-        console.log(currentOrder);
-
+    const onChange = (id: string, value: any) => {console.log(currentOrder);
         //check if item already exists in currentOrder
         if (currentOrder.length > 0) {
-            for (let i = 0; i <= currentOrder.length; i++) {
-                if (id === currentOrder[i]["id"]) {
-                    let updatedOrder = currentOrder;
-                    return setCurrentOrder(updatedOrder.splice(i));
+            for (let i = 0; i < currentOrder.length; i++) {
+                if (id === currentOrder[i].id) {
+                     return currentOrder.splice(i, 1);
                 }
 
             }
         }
 
         //add item to currentOrder
-        return setCurrentOrder((prevCurrentOrder: any) => {
-                return [...prevCurrentOrder, {
-                    id: id,
-                    value: value
-                }]
-            }
-        );
+        currentOrder=[...currentOrder, {
+            id: id,
+            value: value
+        }];
+        return currentOrder;
     }
 
     /*
@@ -47,7 +39,8 @@ const ConfiguratorScreen = (props: any) => {
         */
     const onSubmit = () => {
         props.setOrders(...props.orders, currentOrder);
-        return setCurrentOrder([]);
+        currentOrder = [];
+        return currentOrder;
     };
 
     return (
