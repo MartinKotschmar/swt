@@ -1,7 +1,10 @@
 .header {
     width: 100%;
     min-height: 8rem;
-    padding: 2rem 0 ;
+    background: url("./bg_hop.jpg");
+    background-size: 30%;
+    padding-top: 20px;
+
 }
 
 .header h2{
@@ -10,7 +13,8 @@
 
 .header nav {
     height: 100%;
-    margin-top: 50px
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .header ul {
