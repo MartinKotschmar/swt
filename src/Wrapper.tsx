@@ -1,11 +1,12 @@
 import MainHeader from "./components/Layout/Header/MainHeader";
-import { Link, Route, Switch } from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 import ConfiguratorScreen from "./components/Layout/Body/screens/ConfiguratorScreen";
 import Datenschutzerklaerung from "./components/Layout/Body/screens/Datenschutzerklärung";
-import Lieferung from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/DeliveryDetails";
+import Lieferung
+    from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/DeliveryDetails";
 import Impressum from "./components/Layout/Body/screens/Impressum";
 import AgeCheckModal from "./components/Layout/Body/overlays/AgeCheckModal";
-import React, { Fragment, useState } from "react";
+import React, {Fragment, useState} from "react";
 
 const Wrapper = () => {
 
