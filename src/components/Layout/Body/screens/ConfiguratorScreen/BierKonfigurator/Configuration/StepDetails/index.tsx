@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import IngredientsList from "../ConfigurationPanel/IngredientsPanel/IngredientsList";
 import OrderOverview from "../OrderOverview";
 import classes from "./stepDetails.module.css";
+import { API_BASE_URL } from '../../../../../../../../constants';
 
 const StepDetails = (props: any) => {
     const params: any = useParams();
@@ -37,9 +38,7 @@ const StepDetails = (props: any) => {
     }
 
     async function fetchCatalog(category: string): Promise<any> {
-        const response = await fetch(
-            "http://localhost:8080/api/v1/catalog?category=" + category
-        );
+        const response = await fetch(`${API_BASE_URL}/api/v1/catalog?category=${category}`);
         if (!response.ok) {
             throw new Error("Something went wrong!");
         }
