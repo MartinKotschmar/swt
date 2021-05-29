@@ -26,6 +26,9 @@ const Navigation = () => {
             Warenbestand
           </a>
         </li>
+        <li>
+          <NavLink to={STOCK_PATH}>Warenbestand</NavLink>
+        </li>
       </ul>
     </nav>
   );
