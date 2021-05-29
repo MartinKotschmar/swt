@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./navigation.module.css";
+import { STOCK_PATH } from "../../../../constants";
 
 const Navigation = () => {
   return (
@@ -19,6 +20,9 @@ const Navigation = () => {
         </li>
         <li>
           <NavLink to="/delivery">Lieferung</NavLink>
+        </li>
+        <li>
+          <NavLink to={STOCK_PATH}>Warenbestand</NavLink>
         </li>
       </ul>
     </nav>
