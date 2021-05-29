@@ -22,7 +22,7 @@ const Navigation = () => {
           <NavLink to="/delivery">Lieferung</NavLink>
         </li>
         <li>
-          <NavLink to={STOCK_PATH}>Warenbestand</NavLink>
+          <a target="_blank" href={STOCK_PATH}>Warenbestand</a>
         </li>
       </ul>
     </nav>
