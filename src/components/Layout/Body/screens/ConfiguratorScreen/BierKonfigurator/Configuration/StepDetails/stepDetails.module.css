@@ -1,0 +1,7 @@
+.stepDetails{
+    display: none;
+}
+
+.stepDetails.active{
+    display: block;
+}

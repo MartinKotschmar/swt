@@ -1,29 +1,46 @@
-import React, {useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import ConfigurationPanel from "./BierKonfigurator/Configuration/ConfigurationPanel";
 import ConfigurationBottle from "./BierKonfigurator/Configuration/ConfigurationBottle";
 import "./index.css";
-import IngredientsList from "./BierKonfigurator/Configuration/ConfigurationPanel/IngredientsPanel/IngredientsList";
 
-const ConfiguratorScreen = (props:any) => {
+const ConfiguratorScreen = (props: any) => {
 
-    const [currentOrder, setCurrentOrder]:any = useState([]);
 
-    const onChange = (id: string, value: any) => {
-        for (let i = 0; i <= currentOrder.length; i++) {
-            if (id === currentOrder[i]["id"] && !value) {
-                let updatedOrder = currentOrder;
-                return setCurrentOrder(updatedOrder.splice(i));
+    let currentOrder:{ id: string, value: any }[] = [];
+    //todo same thing happening to the other functions with the same principle of forwarding using props
+
+    const onChange = (id: string, value: any) => {console.log(currentOrder);
+        //check if item already exists in currentOrder
+        if (currentOrder.length > 0) {
+            for (let i = 0; i < currentOrder.length; i++) {
+                if (id === currentOrder[i].id) {
+                     return currentOrder.splice(i, 1);
+                }
+
             }
         }
 
-        setCurrentOrder([...currentOrder, {
-        id:id,
-        value:value
-        }]
-    )}
+        //add item to currentOrder
+        currentOrder=[...currentOrder, {
+            id: id,
+            value: value
+        }];
+        return currentOrder;
+    }
 
-    const onSubmit = () =>{
-        props.setOrders(...props.orders, currentOrder)
+    /*
+        the order-list needs to be sent to the backend to be processed
+        the user should be forwarded to the shopping cart, where a processed list should be rendered
+        (to inform the user what he has in the shopping cart / overview)
+        afterwards the user should have the possibility of: (maybe buttons from which the user can choos)
+          1. deleting items from the shopping cart (update order)
+          2. finishing the order
+          3. create more items (reset states)
+        */
+    const onSubmit = () => {
+        props.setOrders(...props.orders, currentOrder);
+        currentOrder = [];
+        return currentOrder;
     };
 
     return (
