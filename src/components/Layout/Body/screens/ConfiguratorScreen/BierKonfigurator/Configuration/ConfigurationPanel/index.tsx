@@ -4,7 +4,7 @@ import classes from "./ConfigurationPanel.module.css";
 import {Link} from "react-router-dom";
 import StepDetails from "../StepDetails";
 
-const initialNavPoints = [
+const initialNavPoints: any = [
     {
         name: "Biersorte",
         status: 1,
@@ -55,12 +55,30 @@ const initialNavPoints = [
     }
 ];
 
-const ConfigurationPanel = (props: any) => {
-    const [active, setActive] = useState(0);
-    const [navPoints, setNavPoints] = useState(initialNavPoints);
+const getInitialNavPoints = () => {
+    return initialNavPoints;
+};
 
-    const resetNavPoints = () =>{
-        setNavPoints(initialNavPoints);
+const ConfigurationPanel = (props: any) => {
+
+    const [active, setActive] = useState(0);
+    let navPoints: any = getInitialNavPoints();
+
+    const resetNavPoints = () => {
+        console.log(initialNavPoints);
+        let temp: any = [...navPoints];
+        temp.forEach((point: any, i: number) => {
+            temp[i].status = (i) ? 0 : 1;
+        });
+        updateNavPoints(temp);
+        setActive(0);
+        console.log(navPoints);
+        return navPoints;
+    };
+
+    const updateNavPoints = (updatedNavPoints: any) => {
+        navPoints = [...updatedNavPoints];
+        return navPoints;
     };
 
     const changeActive = (step: number) => {
@@ -74,21 +92,21 @@ const ConfigurationPanel = (props: any) => {
                 temp[i].status = 1;
             }
         });
-        setNavPoints(temp);
+        updateNavPoints(temp);
     };
 
     const showHoverText = (element: number) => {
         if (element !== active) {
             let temp: any = [...navPoints];
             temp[element].showHover = true;
-            setNavPoints(temp);
+            updateNavPoints(temp);
         }
     };
 
     const hideHoverText = (element: number) => {
         let temp: any = [...navPoints];
         temp[element].showHover = false;
-        setNavPoints(temp);
+        updateNavPoints(temp);
     };
 
     const onClick = (i: number) => {
@@ -111,9 +129,10 @@ const ConfigurationPanel = (props: any) => {
 
             {/*Panel content*/}
             {/*<IngredientsPanel />*/}
-            {navPoints.map((navPoint: any, index) => {
+            {navPoints.map((navPoint: any, index: number) => {
                 return <StepDetails key={"stepDetails_" + index} step={navPoint} onChange={props.onChange}
-                                    onSubmit={props.onSubmit} active={active} index={index} resetNavPoints={resetNavPoints}/>
+                                    onSubmit={props.onSubmit} active={active} index={index}
+                                    resetNavPoints={resetNavPoints}/>
             })}
 
             {/*Forward/Backward buttons (Panel navigation)*/}

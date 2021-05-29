@@ -8,7 +8,7 @@ const OrderOverview = (props: any) => {
                 to={"/beer-configurator/" + "step-1"}
                 onClick={() => {
                     props.onSubmit();
-                    props.setResetValues(true);
+                    props.updateResetValue();
                     props.resetNavPoints();
                     //todo: show success banner
                 }}>Zum Warenkorb hinzufügen</Link>
