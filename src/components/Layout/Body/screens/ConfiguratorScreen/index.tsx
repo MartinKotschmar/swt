@@ -9,7 +9,7 @@ const ConfiguratorScreen = (props: any) => {
     let currentOrder:{ id: string, value: any }[] = [];
     //todo same thing happening to the other functions with the same principle of forwarding using props
 
-    const onChange = (id: string, value: any) => {console.log(currentOrder);
+    const onChange = (id: string, value: any) => {
         //check if item already exists in currentOrder
         if (currentOrder.length > 0) {
             for (let i = 0; i < currentOrder.length; i++) {
@@ -38,7 +38,7 @@ const ConfiguratorScreen = (props: any) => {
           3. create more items (reset states)
         */
     const onSubmit = () => {
-        props.setOrders(...props.orders, currentOrder);
+        props.updateOrders(currentOrder);
         currentOrder = [];
         return currentOrder;
     };

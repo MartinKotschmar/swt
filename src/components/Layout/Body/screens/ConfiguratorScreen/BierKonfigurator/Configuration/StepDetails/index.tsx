@@ -9,8 +9,12 @@ const StepDetails = (props: any) => {
     const [ingredients, setIngredients]: any = useState([]);
     const initialContent = <p>Found no Ingredients.</p>;
     const [content, setContent] = useState(initialContent);
-    const [resetValues, setResetValues] = useState(false);
+    // const [resetValues, setResetValues] = useState(false);
 
+    const [reset, setReset] = useState(false);
+    const updateResetValue = () =>{
+        setReset(!reset);
+    };
     const {step} = props;
 
     async function fetchAndRenderContent() {
@@ -21,10 +25,10 @@ const StepDetails = (props: any) => {
                 const ingredientsList = await fetchCatalog(category);
                 setIngredients(ingredientsList);
                 setContent(
-                    <IngredientsList ingredients={ingredientsList} onChange={props.onChange} resetValues={resetValues}/>
+                    <IngredientsList ingredients={ingredientsList} onChange={props.onChange} resetValues={reset}/>
                 );
             } else if (step.linkText === "step-6") {
-                setContent(<OrderOverview onSubmit={props.onSubmit} setResetValues={setResetValues} resetNavPoints={props.resetNavPoints}/>);
+                setContent(<OrderOverview onSubmit={props.onSubmit} updateResetValue={updateResetValue} resetNavPoints={props.resetNavPoints}/>);
             } else {
                 setContent(<p>flasche anzeigen und so</p>);
             }
@@ -60,8 +64,6 @@ const StepDetails = (props: any) => {
         fetchIngredients().catch(error => console.log(error));
 
     }, []);
-
-    resetValues && setResetValues(false);
 
 
     return (

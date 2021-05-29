@@ -9,16 +9,23 @@ import AgeCheckModal from "./components/Layout/Body/overlays/AgeCheckModal";
 import React, {Fragment, useState} from "react";
 
 const Wrapper = () => {
-    const [orders, setOrders] = useState([]);
 
+    let orders: any = [];
+
+    const updateOrders = (newOrder:any) =>{
+        orders = [...orders, [newOrder]];
+    };
     return (
         <Fragment>
             <MainHeader/>
             <Switch>
-                <Route path="/beer-configurator/:stepId">
-                    <ConfiguratorScreen orders={orders} setOrders={setOrders}/>
+                <Route path="/" exact>
+                    <ConfiguratorScreen orders={orders} updateOrders={updateOrders}/>
                 </Route>
-                <Route path="/data-protection" exact>
+                <Route path="/beer-configurator/:stepId">
+                    <ConfiguratorScreen orders={orders} updateOrders={updateOrders}/>
+                </Route>
+                <Route path="/privacy-policy" exact>
                     <Datenschutzerklaerung/>
                 </Route>
                 <Route path="/imprint" exact>
@@ -34,7 +41,7 @@ const Wrapper = () => {
                     <div className="banner"/>
                     <div className="nav-footer">
                         <Link to="/imprint">Impressum</Link>
-                        <Link to="/data-protection">Datenschutzerklärung</Link>
+                        <Link to="/privacy-policy">Datenschutzerklärung</Link>
                     </div>
                 </div>
             </div>
