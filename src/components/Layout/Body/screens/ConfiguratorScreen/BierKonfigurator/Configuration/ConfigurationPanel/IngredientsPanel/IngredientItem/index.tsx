@@ -1,17 +1,18 @@
-import {useEffect, useState} from "react";
-
+import {useState} from "react";
+import classes from "./ingredientItem.module.css";
 
 const IngredientItem = (props: any) => {
 
     const [value, setValue] = useState(false);
 
-if(props.resetValues){
-    setValue(false);
+    if (props.resetValues) {
+        setValue(false);
 
-}
+    }
 
     return (
-        <label key={props.id}>
+        <label key={props.id} className={`${classes.container}`}>
+            <span className={`${classes.title}`}>{props.title}</span>
             <input
                 type="checkbox"
                 checked={value}
@@ -20,7 +21,7 @@ if(props.resetValues){
                     setValue(!value);
                 }}
             />
-            {props.title}
+            <span className={`${classes.checkmark}`}/>
         </label>
     )
 };

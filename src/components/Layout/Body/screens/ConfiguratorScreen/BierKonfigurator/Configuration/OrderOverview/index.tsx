@@ -1,15 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import classes from "./OrderOverview.module.css";
 
 const OrderOverview = (props: any) => {
     return (
         <div>
             <Link
-                to={"/beer-configurator/" + "step-1"}
+                to={"/beer-configurator/" + "step-6"}
+                className={`${classes.submitButton}`}
                 onClick={() => {
                     props.onSubmit();
-                    props.updateResetValue();
-                    props.resetNavPoints();
+                    //props.updateResetValue();
+                    //props.resetNavPoints();
                     //todo: show success banner
                 }}>Zum Warenkorb hinzufügen</Link>
         </div>

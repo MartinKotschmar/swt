@@ -62,6 +62,7 @@ const getInitialNavPoints = () => {
 const ConfigurationPanel = (props: any) => {
 
     const [active, setActive] = useState(0);
+    const [change, setChange] = useState(false);
     let navPoints: any = getInitialNavPoints();
 
     const resetNavPoints = () => {
@@ -100,6 +101,7 @@ const ConfigurationPanel = (props: any) => {
             let temp: any = [...navPoints];
             temp[element].showHover = true;
             updateNavPoints(temp);
+            setChange(!change);
         }
     };
 
@@ -107,6 +109,7 @@ const ConfigurationPanel = (props: any) => {
         let temp: any = [...navPoints];
         temp[element].showHover = false;
         updateNavPoints(temp);
+        setChange(!change);
     };
 
     const onClick = (i: number) => {

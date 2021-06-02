@@ -4,7 +4,7 @@ import IngredientItem from "../IngredientItem";
 const IngredientsList = (props: any) => {
 
         return (
-            <div className={classes.container}>
+            <div className={`${classes.container} ${classes.ingredientList}`}>
                 {props.ingredients.map((element: any) => {
                     return (
                         <IngredientItem key={"Ingredient_" + element.id} id={element.id} title={element.title}
