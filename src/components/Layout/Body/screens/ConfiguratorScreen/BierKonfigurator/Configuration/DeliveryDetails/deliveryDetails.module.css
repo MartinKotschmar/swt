@@ -68,9 +68,9 @@
 }
 
 .content {
-  margin: 40px 0;
+  margin: 8px 0;
   position: absolute;
-  padding: 40px 0;
+  padding: 4px 0;
   height: fit-content;
 }
 

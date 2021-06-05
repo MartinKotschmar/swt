@@ -8,7 +8,7 @@ import bottleGreenSmall from './bottle-green-small.png'
 
 import classes from './ConfigurationBottle.module.css'
 
-const ConfigurationBottle = () => {
+const ConfigurationBottle = (props:any) => {
 
         // [brown, green, white]
 
@@ -87,7 +87,8 @@ const ConfigurationBottle = () => {
                 ...bottle,
                 enteredText: event.target.value,
             });
-            // console.log(bottle.bottleWidth)
+
+            // props.onChange();
         }
 
 

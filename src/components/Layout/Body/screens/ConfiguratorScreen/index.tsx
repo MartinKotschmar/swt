@@ -20,6 +20,36 @@ const ConfiguratorScreen = (props: any) => {
           return currentOrder.splice(i, 1);
         }
       }
+
+    let currentOrder: { id: string, value: any }[] = [];
+    //todo same thing happening to the other functions with the same principle of forwarding using props
+
+    type orderItem = {
+        id: string,
+        value: any,
+
+    }
+
+    const onChange = (props: orderItem) => {
+
+        const {value, id} = props;
+
+        //check if item already exists in currentOrder
+        if (currentOrder.length > 0) {
+            for (let i = 0; i < currentOrder.length; i++) {
+                if (id === currentOrder[i].id || value.size === currentOrder[i].value.size || value.color === currentOrder[i].value.color) {
+                    return currentOrder.splice(i, 1);
+                }
+
+            }
+        }
+
+        //add item to currentOrder
+        currentOrder = [...currentOrder, {
+            id: id,
+            value: value
+        }];
+        return currentOrder;
     }
 
     //add item to currentOrder
@@ -60,6 +90,15 @@ const ConfiguratorScreen = (props: any) => {
       </div>
     </section>
   );
+    return (
+        <section>
+            {/*content/data: The Ingredients List (the select fields of which the user can choose from)*/}
+            <div className={"flex-wrapper"}>
+                <ConfigurationPanel onChange={onChange} onSubmit={onSubmit}/>
+                <ConfigurationBottle onChange={onChange}/>
+            </div>
+        </section>
+    );
 };
 
 export default ConfiguratorScreen;

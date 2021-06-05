@@ -6,8 +6,9 @@ const OrderOverview = (props: any) => {
     return (
         <div>
             <Link
-                to={"/beer-configurator/" + "step-6"}
+                to={"/shopping-cart"}
                 className={`${classes.submitButton}`}
+
                 onClick={() => {
                     props.onSubmit();
                     //props.updateResetValue();

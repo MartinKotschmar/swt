@@ -19,12 +19,10 @@ const Navigation = () => {
           <NavLink to="/imprint">Impressum</NavLink>
         </li>
         <li>
-          <NavLink to="/shopping-Cart">Warenkorb</NavLink>
+          <NavLink to="/shopping-cart">Warenkorb</NavLink>
         </li>
         <li>
-          <a target="_blank" href={STOCK_PATH}>
-            Warenbestand
-          </a>
+          <NavLink to="/delivery">Lieferung</NavLink>
         </li>
         <li>
           <a target="_blank" href={STOCK_PATH}>Warenbestand</a>

@@ -1,0 +1,24 @@
+.flex{
+    display: flex;
+}
+
+.fd-column{
+    flex-direction: column;
+}
+
+.product_categories{
+    font-weight: bold;
+}
+
+.seperator{
+    height: 1px;
+    width:100%;
+    background-color: #121212;
+    margin: 4px 0;
+}
+
+.cart{
+    width: 80%;
+    padding: 8px;
+    font-weight: normal;
+}
