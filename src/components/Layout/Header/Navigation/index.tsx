@@ -13,16 +13,18 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/data-protection">Datenschutzerklärung</NavLink>
+          <NavLink to="/privacy-policy">Datenschutzerklärung</NavLink>
         </li>
         <li>
           <NavLink to="/imprint">Impressum</NavLink>
         </li>
         <li>
-          <NavLink to="/delivery">Lieferung</NavLink>
+          <NavLink to="/shopping-Cart">Warenkorb</NavLink>
         </li>
         <li>
-          <a target="_blank" href={STOCK_PATH}>Warenbestand</a>
+          <a target="_blank" href={STOCK_PATH}>
+            Warenbestand
+          </a>
         </li>
       </ul>
     </nav>
