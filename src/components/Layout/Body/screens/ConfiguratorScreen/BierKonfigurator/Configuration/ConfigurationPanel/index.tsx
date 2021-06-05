@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {useState} from "react";
 import ConfigurationSteps from "../ConfigurationSteps";
 import classes from "./ConfigurationPanel.module.css";
 import {Link} from "react-router-dom";

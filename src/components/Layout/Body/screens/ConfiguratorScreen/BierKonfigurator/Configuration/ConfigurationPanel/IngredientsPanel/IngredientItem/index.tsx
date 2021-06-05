@@ -5,10 +5,10 @@ const IngredientItem = (props: any) => {
   const [value, setValue] = useState(false);
   let setName = "";
   let setType = "checkbox";
-  if (props.categories[0] == "Komponente") {
+  if (props.categories[0] === "Komponente") {
     setName = props.categories[1];
     setType = "radio";
-  } else if (props.categories[1] == "Komponente") {
+  } else if (props.categories[1] === "Komponente") {
     setName = props.categories[0];
     setType = "radio";
   }
@@ -24,7 +24,8 @@ const IngredientItem = (props: any) => {
         checked={value}
         name={setName}
         onChange={() => {
-          props.onChange(props.id, !value, props.price.amount, props.title);
+            console.log(props);
+          props.onChange(props.id, !value, props.price.amount, props.title, props.categories);
           setValue(!value);
         }}
       />

@@ -8,7 +8,7 @@ import bottleGreenSmall from './bottle-green-small.png'
 
 import classes from './ConfigurationBottle.module.css'
 
-const ConfigurationBottle = (props:any) => {
+const ConfigurationBottle = (props: any) => {
 
         // [brown, green, white]
 
@@ -40,7 +40,7 @@ const ConfigurationBottle = (props:any) => {
             }
         }
 
-        const bottleChangeHandlerLeft = () => {
+        const bottleColorChangeHandlerLeft = () => {
             switch (bottle.color) {
                 case 'green': {
                     let result = {...bottle, color: 'brown', usedGraphic: bottleBrownSmall}
@@ -81,7 +81,7 @@ const ConfigurationBottle = (props:any) => {
         }
 
         const enterText = (event: any) => {
-            const {value, maxLength} = event.target;
+            //const {value, maxLength} = event.target;
 
             setBottle({
                 ...bottle,
@@ -89,6 +89,10 @@ const ConfigurationBottle = (props:any) => {
             });
 
             // props.onChange();
+        }
+
+        const onChange = () => {
+            props.onBottleChange(bottle.size, bottle.enteredText, bottle.color);
         }
 
 
@@ -102,11 +106,17 @@ const ConfigurationBottle = (props:any) => {
                             <p>{bottle.enteredText}</p>
                         </div>
                         <div className={classes.buttonWrapper}>
-                            <button onClick={bottleChangeHandlerLeft}
+                            <button onClick={() => {
+                                bottleColorChangeHandlerLeft();
+                                onChange();
+                            }}
                                     className={`${classes.button} ${classes.buttonLeft}`}>
                                 <span>zurück</span>
                             </button>
-                            <button onClick={bottleColorChangeHandlerRight}
+                            <button onClick={() => {
+                                bottleColorChangeHandlerRight();
+                                onChange();
+                            }}
                                     className={`${classes.button} ${classes.buttonRight}`}>
                                 <span>vor</span>
                             </button>
@@ -116,18 +126,27 @@ const ConfigurationBottle = (props:any) => {
                 </div>
 
                 <div className={classes.bottlePanelWrapper}>
-                    <form>
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        onChange();
+                    }}>
                         <input type="text"
                                maxLength={24}
-                               onChange={enterText}
+                               onChange={(event) => {
+                                   enterText(event);
+                                   onChange();
+                               }}
                                placeholder='Ihr Labeltext...'/>
                     </form>
                     <div className={classes.changeSizeWrapper}>
                         <div>
                             <p>Size {bottle.size}</p>
-                            <button onClick={bottleSizeToggle}
-                                    className={`${classes.button} ${bottle.sizeIsNormal ? classes.minus : classes.plus}`}></button>
-
+                            <button
+                                onClick={() => {
+                                    bottleSizeToggle();
+                                    onChange();
+                                }}
+                                className={`${classes.button} ${bottle.sizeIsNormal ? classes.minus : classes.plus}`}/>
                         </div>
                     </div>
 

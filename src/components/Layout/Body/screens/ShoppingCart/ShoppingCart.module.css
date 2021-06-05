@@ -21,4 +21,9 @@
     width: 80%;
     padding: 8px;
     font-weight: normal;
+    margin: 0 auto;
+}
+
+.container{
+    margin: 12px 0;
 }

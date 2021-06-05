@@ -1,5 +1,5 @@
 import MainHeader from "./components/Layout/Header/MainHeader";
-import {Link, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import ConfiguratorScreen from "./components/Layout/Body/screens/ConfiguratorScreen";
 import Datenschutzerklaerung from "./components/Layout/Body/screens/Datenschutzerklärung";
 import Lieferung
@@ -7,29 +7,22 @@ import Lieferung
 import Impressum from "./components/Layout/Body/screens/Impressum";
 import ShoppingCart from "./components/Layout/Body/screens/ShoppingCart";
 import AgeCheckModal from "./components/Layout/Body/overlays/AgeCheckModal";
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useState} from "react";
 import Footer from "./components/Layout/Footer";
-import ShoppingCart from "./components/Layout/Body/screens/ShoppingCart";
 import classes from "./Wrapper.module.css";
 
 const Wrapper = () => {
-  const [update, doUpdate] = useState(true);
-  let orders: any = [];
 
     // let orders: any = [];
     const [orders, setOrders]: any = useState([]);
 
-    const updateOrders = (newOrder: any) => {
-        setOrders([...orders, [newOrder]]);
+    const updateOrders = (newItems: any, size: string, enteredText: string, color: string) => {
+        setOrders([{items: [...orders, newItems], bottleSize: size, bottleText: enteredText, bottleColor: color}]);
     };
 
-    const getOrder = () => {
-        return orders;
-    }
-
-    useEffect(() => {
-        return getOrder();
-    })
+    // const getOrder = () => {
+    //     return orders;
+    // }
 
     return (
         <Fragment>
@@ -41,7 +34,7 @@ const Wrapper = () => {
                         <ConfiguratorScreen updateOrders={updateOrders}/>
                     </Route>
                     <Route path="/beer-configurator/:stepId">
-                        <ConfiguratorScreen orders={orders} updateOrders={updateOrders}/>
+                        <ConfiguratorScreen updateOrders={updateOrders}/>
                     </Route>
                     <Route path="/privacy-policy" exact>
                         <Datenschutzerklaerung/>
