@@ -80,3 +80,8 @@
 .width100 {
     width: 100%;
 }
+
+.dotActive{
+    background-color: rgba(38, 131, 205, 0.91);
+    border: rgba(38, 131, 205, 0.91);
+}
