@@ -1,20 +1,20 @@
 .linkButton {
-  text-decoration: none;
+    text-decoration: none;
 
-  width: 50%;
-  color: #fff;
-  padding: 8px 4px;
-  border-radius: 20px;
-  background-color: #da7817;
-  outline: none;
-  cursor: pointer;
-  border: transparent;
-  font-size: large;
-  margin: 0 0 30px 0;
+    width: 50%;
+    color: #fff;
+    padding: 8px 4px;
+    border-radius: 20px;
+    background-color: #da7817;
+    outline: none;
+    cursor: pointer;
+    border: transparent;
+    font-size: large;
+    margin: 0 0 30px 0;
 }
 
 .linkButton:hover {
-  background-color: #ed8118;
-  transition: 0.15s;
-  box-shadow: 1px 2px 4px #999;
+    background-color: #ed8118;
+    transition: 0.15s;
+    box-shadow: 1px 2px 4px #999;
 }

@@ -9,7 +9,6 @@ import bottleGreenSmall from "./bottle-green-small.png";
 import classes from "./ConfigurationBottle.module.css";
 
 const ConfigurationBottle = (props: any) => {
-    // [brown, green, white]
 
     const [bottle, setBottle] = useState({
         sizeIsNormal: true,
@@ -31,6 +30,7 @@ const ConfigurationBottle = (props: any) => {
                 props.onBottleChange({...bottle, color: "weiß"});
                 return setBottle(result);
             }
+
             case "braun": {
                 let result = {
                     ...bottle,
@@ -39,9 +39,9 @@ const ConfigurationBottle = (props: any) => {
                 };
                 if (result.sizeIsNormal) result.usedGraphic = bottleGreenNormal;
                 props.onBottleChange({...bottle, color: "grün"});
-
                 return setBottle(result);
             }
+
             case "weiß": {
                 let result = {
                     ...bottle,
@@ -50,7 +50,6 @@ const ConfigurationBottle = (props: any) => {
                 };
                 if (result.sizeIsNormal) result.usedGraphic = bottleBrownNormal;
                 props.onBottleChange({...bottle, color: "braun"});
-
                 return setBottle(result);
             }
         }
@@ -66,9 +65,9 @@ const ConfigurationBottle = (props: any) => {
                 };
                 if (result.sizeIsNormal) result.usedGraphic = bottleBrownNormal;
                 props.onBottleChange({...bottle, color: "braun"});
-
                 return setBottle(result);
             }
+
             case "braun": {
                 let result = {
                     ...bottle,
@@ -77,9 +76,9 @@ const ConfigurationBottle = (props: any) => {
                 };
                 if (result.sizeIsNormal) result.usedGraphic = bottleWhiteNormal;
                 props.onBottleChange({...bottle, color: "weiß"});
-
                 return setBottle(result);
             }
+
             case "weiß": {
                 let result = {
                     ...bottle,
@@ -88,7 +87,6 @@ const ConfigurationBottle = (props: any) => {
                 };
                 if (result.sizeIsNormal) result.usedGraphic = bottleGreenNormal;
                 props.onBottleChange({...bottle, color: "grün"});
-
                 return setBottle(result);
             }
         }
@@ -117,15 +115,12 @@ const ConfigurationBottle = (props: any) => {
     };
 
     const enterText = (event: any) => {
-        //const {value, maxLength} = event.target;
         props.onBottleChange({...bottle, enteredText: event.target.value});
 
         setBottle({
             ...bottle,
             enteredText: event.target.value,
         });
-
-        // props.onChange();
     };
 
 

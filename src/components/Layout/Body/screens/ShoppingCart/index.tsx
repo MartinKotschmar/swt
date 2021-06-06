@@ -1,9 +1,7 @@
 import classes from "./ShoppingCart.module.css";
 import React from "react";
-import {Link} from "react-router-dom";
 
 const ShoppingCart = (props: any) => {
-    //todo send data of order to the backend to finish the transaction (+ lieferdetails)
     let content;
     const basePrice = 3;
     const orders = props.orders;
@@ -27,7 +25,6 @@ const ShoppingCart = (props: any) => {
         const sortedItems = items.sort((a: any, b: any) =>
             a.category > b.category ? 1 : -1
         );
-        console.log(sortedItems);
         let categories = sortedItems[0]
             .map((a: any) => a.categories)
             .map((e: any) =>
@@ -42,8 +39,7 @@ const ShoppingCart = (props: any) => {
         }, []);
 
         finalPrice = sortedItems[0].reduce(
-            (a: number, b: any) => a + (b.price.amount || 0),
-            0
+            (a: number, b: any) => a + (b.price.amount || 0), 0
         );
 
         //the order rendered in the form category -> items
@@ -104,18 +100,18 @@ const ShoppingCart = (props: any) => {
                 </p>
                 <div className={`${classes.mv_12}`}>
 
-                        <button
-                            className={`${classes.submitButton}`}
-                            onClick={() => {
-                                props.changeShowSuccess();
-                                window.scrollTo(0, 0);
-                                setTimeout(function () {
-                                    window.location.href = '/beer-configurator/step-1'
-                                }, 4100);
-                            }}
-                        >
-                            Jetzt kaufen!
-                        </button>
+                    <button
+                        className={`${classes.submitButton}`}
+                        onClick={() => {
+                            props.changeShowSuccess();
+                            window.scrollTo(0, 0);
+                            setTimeout(function () {
+                                window.location.href = '/beer-configurator/step-1'
+                            }, 4100);
+                        }}
+                    >
+                        Jetzt kaufen!
+                    </button>
 
                 </div>
             </div>

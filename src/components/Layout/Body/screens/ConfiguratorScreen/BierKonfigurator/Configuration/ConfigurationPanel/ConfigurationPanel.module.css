@@ -1,123 +1,123 @@
 .flex {
-  display: flex;
-  flex-direction: row;
-  flex: 12;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    flex: 12;
+    justify-content: space-between;
 }
 
 .btn {
-  border: 1px solid #121212;
-  color: #121212;
-  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
-  text-decoration: none;
+    border: 1px solid #121212;
+    color: #121212;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    text-decoration: none;
 
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
-  color: rgba(0, 0, 0, 0.85);
-  cursor: pointer;
-  display: inline-block;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-block;
 
-  line-height: 1.5715;
-  padding: 4px 15px;
-  position: relative;
-  text-align: center;
-  touch-action: manipulation;
-  transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    line-height: 1.5715;
+    padding: 4px 15px;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .btn:hover {
-  color: #ed8118;
-  border-color: #ed8118;
+    color: #ed8118;
+    border-color: #ed8118;
 }
 
 .btn_left {
-  float: left;
+    float: left;
 }
 
 .btn_right {
-  float: right;
+    float: right;
 }
 
 .btn {
 }
 
 .mh_20 {
-  margin-right: 20px;
-  margin-left: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .button {
-  width: 50%;
+    width: 50%;
 }
 
 .buttonWrapper {
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  top: 50%;
-  z-index: 50;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    top: 50%;
+    z-index: 50;
 }
 
 .buttonWrapper button {
-  border-radius: 8px;
-  background-color: #282c34;
-  border: none;
-  color: #ffffff;
-  text-align: center;
-  font-size: 20px;
-  padding: 8px 7px;
-  width: 110px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+    border-radius: 8px;
+    background-color: #282c34;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    padding: 8px 7px;
+    width: 110px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
 }
 
 .buttonWrapper button:hover {
-  background-color: #da7817;
+    background-color: #da7817;
 }
 
 .buttonWrapper button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .buttonWrapper .buttonRight span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
 }
 
 .buttonWrapper .buttonLeft span:after {
-  content: "\00AB";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: -20px;
-  transition: 0.5s;
+    content: "\00AB";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
 }
 
 .buttonWrapper .buttonRight:hover span {
-  padding-right: 25px;
+    padding-right: 25px;
 }
 
 .buttonWrapper .buttonLeft:hover span {
-  padding-left: 25px;
+    padding-left: 25px;
 }
 
 .buttonWrapper .buttonRight:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 0;
 }
 
 .buttonWrapper .buttonLeft:hover span:after {
-  opacity: 1;
-  left: 0;
+    opacity: 1;
+    left: 0;
 }

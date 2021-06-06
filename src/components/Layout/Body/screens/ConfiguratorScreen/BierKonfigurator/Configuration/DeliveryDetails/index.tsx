@@ -1,5 +1,4 @@
 import classes from "./deliveryDetails.module.css";
-import {Link} from "react-router-dom";
 
 import React, {useState} from "react";
 
@@ -95,7 +94,6 @@ const DeliveryDetails = (props: any) => {
                                         minLength={2}
                                         pattern="[A-Z a-z]*"
                                         required={true}
-
                                     />
                                 </div>
                                 <div className={classes.input_div}>
@@ -113,7 +111,6 @@ const DeliveryDetails = (props: any) => {
                                         minLength={2}
                                         pattern="[A-Za-z]*"
                                         required={true}
-
                                     />
                                 </div>
                                 <div className={classes.input_div}>
@@ -130,7 +127,6 @@ const DeliveryDetails = (props: any) => {
                                         type={"email"}
                                         minLength={5}
                                         required={true}
-
                                     />
                                 </div>
                                 <div className={classes.input_div}>
@@ -147,7 +143,6 @@ const DeliveryDetails = (props: any) => {
                                         type="number"
                                         minLength={5}
                                         required={true}
-
                                     />
                                 </div>
                             </div>
@@ -172,7 +167,6 @@ const DeliveryDetails = (props: any) => {
                                     maxLength={5}
                                     pattern="[0-9]{6}"
                                     required={true}
-
                                 />
                             </div>
                             <div className={classes.adress_Child}>
@@ -190,7 +184,6 @@ const DeliveryDetails = (props: any) => {
                                     minLength={2}
                                     pattern="[A-Za-z]*"
                                     required={true}
-
                                 />
                             </div>
                             <div className={classes.adress_Child}>
@@ -208,7 +201,6 @@ const DeliveryDetails = (props: any) => {
                                     minLength={3}
                                     pattern="[A-Za-z0-9\s]*"
                                     required={true}
-
                                 />
                             </div>
                             <div
@@ -228,7 +220,6 @@ const DeliveryDetails = (props: any) => {
                                     min={1}
                                     pattern="[0-9]{4}"
                                     required={true}
-
                                 />
                             </div>
                         </div>

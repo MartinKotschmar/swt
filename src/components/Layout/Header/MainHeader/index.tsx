@@ -7,7 +7,7 @@ const MainHeader = () => {
     return (
         <header className={classes.header}>
             <div className={`${classes.logoWrapper}`}>
-                <Logo />
+                <Logo/>
             </div>
             <Navigation/>
         </header>

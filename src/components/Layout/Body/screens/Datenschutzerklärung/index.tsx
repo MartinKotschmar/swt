@@ -78,7 +78,7 @@ const Datenschutzerklaerung = () => {
                 der ausführlichen Fassung.<br/></p>
 
             <p>Zur Wahrung Ihrer Rechte und um die rechtlich einwandfreie Verarbeitung sicherzustellen, haben wir einen
-            externen Datenschutzbeauftragten benannt.</p>
+                externen Datenschutzbeauftragten benannt.</p>
 
 
             <b>Dieses sind die Kontaktdaten:</b><br/><br/>

@@ -1,8 +1,9 @@
-.flex-wrapper{
+.flex-wrapper {
     display: flex;
     flex-direction: row;
     flex: 12;
 }
+
 .flex-wrapper > * {
     flex: 6;
 }
