@@ -1,17 +1,28 @@
+.activeStatus {
+  display: block;
+}
+
+.activeStatus {
+  display: none;
+}
+
 .radioOption {
 }
 
 .adress {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-between;
 }
 
 .adress_Child {
-  flex: 0 0 25%;
+  flex: 1 0 45%;
   text-align: start;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .personal_Details {
@@ -20,11 +31,12 @@
 }
 
 .personal_Details .input_div {
-  flex: 0 0 25%;
+  flex: 0 0 100%;
   padding: 10px;
   text-align: start;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .button {
@@ -43,8 +55,8 @@
 
 .wrapper {
   margin: 0 auto;
-  min-height: 500px;
-  width: 65%;
+  min-height: fit-content;
+  width: 20%;
   position: relative;
 }
 
@@ -69,7 +81,7 @@
 
 .content {
   margin: 8px 0;
-  position: absolute;
+  position: relative;
   padding: 4px 0;
   height: fit-content;
 }
@@ -82,6 +94,7 @@
 .personal_Details_Wrapper {
   margin: 0 auto;
   flex: 1 0 100%;
+  box-sizing: border-box;
 }
 
 .input_div_select {
@@ -90,12 +103,7 @@
   text-align: start;
   display: flex;
   flex-direction: column;
-  max-width: 100px;
-}
-
-.button_wrapper {
-  flex: 1 0 100%;
-  padding: 20px 0;
+  max-width: 150px;
 }
 
 .adress_Child_short {
@@ -114,7 +122,7 @@
 }
 
 .button:hover {
-  background-color: #da7817;
+  background-color: #050403;
   box-shadow: none;
   border: 0;
   padding: 12px 32px;
@@ -146,34 +154,13 @@
   -webkit-appearance: none;
 }
 
-.content {
-  margin: 40px 0;
-  position: absolute;
-  padding: 40px 0;
-  height: fit-content;
-}
-
-.form {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .personal_Details_Wrapper {
   margin: 0 auto;
   flex: 1 0 100%;
 }
 
-.input_div_select {
-  padding: 10px;
-  flex: 0 0 100%;
-  text-align: start;
-  display: flex;
-  flex-direction: column;
-  max-width: 100px;
-}
-
 .button_wrapper {
-  flex: 1 0 100%;
+  flex: 0 0 100%;
   padding: 20px 0;
 }
 
@@ -186,10 +173,8 @@
 
 .linkButton {
   text-decoration: none;
-
-  width: 25%;
   color: #fff;
-  padding: 8px 4px;
+  padding: 8px 20px;
   border-radius: 20px;
   background-color: #da7817;
   outline: none;
@@ -204,3 +189,11 @@
   transition: 0.15s;
   box-shadow: 1px 2px 4px #999;
 }
+
+/* .flexGroup2 {
+  flex-direction: row;
+  flex: 3;
+}
+.flexGroup2:first-child {
+  flex-grow: 3;
+} */

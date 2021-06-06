@@ -4,6 +4,7 @@ import OrderOverview from "../OrderOverview";
 import classes from "./stepDetails.module.css";
 import { API_BASE_URL } from "../../../../../../../../constants";
 import { Link } from "react-router-dom";
+import DeliveryDetails from "../DeliveryDetails";
 
 const StepDetails = (props: any) => {
   //const params: any = useParams();
@@ -35,11 +36,14 @@ const StepDetails = (props: any) => {
       } else if (step.linkText === "step-4") {
         //TODO Button stylen
         setContent(
-          <Link to={"/delivery"}>
-            <button className={classes.linkButton}>
-              Zu LieferDetails wechseln
-            </button>
-          </Link>
+          <DeliveryDetails
+            updateDeliveryDetails={props.updateDeliveryDetails}
+          />
+          //   <Link to={"/delivery"}>
+          //     <button className={classes.linkButton}>
+          //       Zu LieferDetails wechseln
+          //     </button>
+          //   </Link>
         );
       } else if (step.linkText === "step-5") {
         setContent(

@@ -1,27 +1,26 @@
 .navigation {
-    background-color: #da7817;
-    width: 100%;
-    padding: 5px 0;
-    box-shadow: 0 5px 5px rgba(218, 120, 23, 0.2);
+  background-color: #da7817;
+  width: 100%;
+  padding: 15px 0;
+  box-shadow: 0 5px 5px rgba(218, 120, 23, 0.2);
 }
 
 .navigation > ul > li {
-    margin: 0 1rem;
-    padding: 0 1rem;
-    width: auto;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  width: auto;
 }
 
 nav.navigation > ul > li > a.active {
-    border-bottom: 2px solid #ddd;
-    text-decoration: none;
-    color: #fff;
-    padding-bottom: 0;
+  border-bottom: 2px solid #eee;
+  text-decoration: none;
+  color: #fff;
+  padding-bottom: 0;
 }
 
 nav.navigation > ul > li > a:hover {
-    border-bottom: 2px solid #eee;
-    text-decoration: none;
-    color: #fff;
-    padding-bottom: 0;
+  border-bottom: 2px solid #eee;
+  text-decoration: none;
+  color: #fff;
+  padding-bottom: 0;
 }
-

@@ -39,7 +39,10 @@ const Wrapper = () => {
             <ConfiguratorScreen updateOrders={updateOrders} />
           </Route>
           <Route path="/beer-configurator/:stepId">
-            <ConfiguratorScreen updateOrders={updateOrders} />
+            <ConfiguratorScreen
+              updateOrders={updateOrders}
+              updateDeliveryDetails={updateDeliveryDetails}
+            />
           </Route>
           <Route path="/privacy-policy" exact>
             <Datenschutzerklaerung />
@@ -55,12 +58,12 @@ const Wrapper = () => {
               deliveryDetails={deliveryDetails}
             />
           </Route>
-          <Route path="/delivery" exact>
+          {/* <Route path="/delivery" exact>
             <Lieferung updateDeliveryDetails={updateDeliveryDetails} />
-          </Route>
+          </Route> */}
         </Switch>
 
-        <AgeCheckModal active={true} />
+        <AgeCheckModal active={false} />
       </div>
 
       <Footer />

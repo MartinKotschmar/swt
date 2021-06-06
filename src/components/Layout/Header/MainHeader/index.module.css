@@ -1,52 +1,43 @@
 .header {
-    width: 100%;
-    min-height: 8rem;
-    background: url("./bg_hop.jpg");
-    background-size: 30%;
-    padding-top: 20px;
-
+  width: 100%;
+  min-height: 8rem;
+  background: url("./bg_hop.jpg");
+  background-size: 30%;
+  padding-top: 20px;
 }
 
-.header h2{
-    margin: 0 0;
+.header h2 {
+  margin: 0 0;
 }
 
 .header nav {
-    height: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  height: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .header ul {
-    height: 100%;
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .header li {
-    margin: 0 1rem;
-    padding: 0 1rem;
-    width: 7rem;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  width: 7rem;
 }
 
 .header a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
-.header a:hover,
-.header a:active,
-.header a.active {
-    color: #95bcf0;
-    padding-bottom: 0.25rem;
-    border-bottom: 4px solid #95bcf0;
-}
-
-.logo-wrapper{
-    width: 100%;
-    background-color: white;
+.logo-wrapper {
+  width: 100%;
+  background-color: white;
 }
