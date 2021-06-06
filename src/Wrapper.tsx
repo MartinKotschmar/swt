@@ -9,7 +9,6 @@ import React, {Fragment, useState} from "react";
 import Footer from "./components/Layout/Footer";
 import classes from "./Wrapper.module.css";
 import Banner from "./components/Layout/Body/overlays/Banner";
-import DeliveryDetails from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/DeliveryDetails";
 
 const Wrapper = () => {
     const [orders, setOrders]: any = useState([]);
