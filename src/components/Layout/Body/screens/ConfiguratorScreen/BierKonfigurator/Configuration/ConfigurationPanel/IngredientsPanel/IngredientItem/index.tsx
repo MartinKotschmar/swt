@@ -1,38 +1,35 @@
-import { useState } from "react";
+import {useState} from "react";
 import classes from "./ingredientItem.module.css";
 
 const IngredientItem = (props: any) => {
-  const [value, setValue] = useState(false);
-  let setName = "";
-  let setType = "checkbox";
-  if (props.categories[0] === "Komponente") {
-    setName = props.categories[1];
-    setType = "radio";
-  } else if (props.categories[1] === "Komponente") {
-    setName = props.categories[0];
-    setType = "radio";
-  }
-  if (props.resetValues) {
-    setValue(false);
-  }
+        const [value, setValue] = useState(false);
 
-  return (
-    <label key={props.id} className={`${classes.container}`}>
-      <span className={`${classes.title}`}>{props.title}</span>
-      <input
-        required
-        type={setType}
-        checked={value}
-        name={setName}
-        onChange={() => {
-          props.onChange(props, !value);
-          setValue(!value);
-        }}
-      />
-      <span>{` (${props.price.formatted})`}</span>
-      <span className={`${classes.checkmark}`} />
-    </label>
-  );
-};
+        if (props.resetValues) {
+            setValue(false);
+        }
+
+        return (
+            <label key={props.id} className={`${classes.container}`}>
+                <span className={`${classes.title}`}>{props.title}</span>
+                <input
+                    type={props.setType}
+                    checked={props.setType === "radio" ? props.value : value}
+                    name={props.name}
+                    onChange={() => {
+                        if (props.setType === "radio") {
+                            props.onChange(props, !value);
+                            props.updateRadioValue(props.itemKey);
+                        } else {
+                            props.onChange(props, !value);
+                            setValue(!value);
+                        }
+                    }}
+                />
+                <span>{` (${props.price.formatted})`}</span>
+                <span className={`${props.setType === "checkbox" ? classes.checkmark : classes.radio}`}/>
+            </label>
+        );
+    }
+;
 
 export default IngredientItem;
