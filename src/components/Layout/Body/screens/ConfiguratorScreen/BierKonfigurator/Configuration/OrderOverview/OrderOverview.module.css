@@ -1,15 +1,20 @@
-.submitButton {
-    text-decoration: none;
-    text-underline: none;
+.linkButton {
+  text-decoration: none;
 
-    color: #fff;
-    padding: 4px 24px;
-    border-radius: 20px;
-    background-color: #da7817;
-    cursor: pointer;
+  width: 25%;
+  color: #fff;
+  padding: 8px 4px;
+  border-radius: 20px;
+  background-color: #da7817;
+  outline: none;
+  cursor: pointer;
+  border: transparent;
+  font-size: large;
+  margin: 0 0 30px 0;
 }
 
-.submitButton:hover {
-    background-color: #ed8118;
-    transition: .15s;
+.linkButton:hover {
+  background-color: #ed8118;
+  transition: 0.15s;
+  box-shadow: 1px 2px 4px #999;
 }

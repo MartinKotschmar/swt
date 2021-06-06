@@ -30,7 +30,7 @@ const Wrapper = () => {
 
   return (
     <Fragment>
-      <Banner type={"success"} visibility={showSuccess} />
+      <Banner id="banner" type={"success"} visibility={showSuccess} />
       <MainHeader />
 
       <div className={`${classes.pageWrapper}`}>

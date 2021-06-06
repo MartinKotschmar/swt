@@ -114,8 +114,10 @@ const ShoppingCart = (props: any) => {
             Jetzt kaufen!
           </button>
         ) : (
-          <Link to={"/delivery"} className={`${classes.submitButton}`}>
-            Lieferdetails hinzufügen
+          <Link to={"/delivery"}>
+            <button className={classes.linkButton}>
+              Lieferdetails hinzufügen
+            </button>
           </Link>
         )}
       </div>

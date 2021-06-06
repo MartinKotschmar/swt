@@ -7,7 +7,6 @@ const OrderOverview = (props: any) => {
     <div>
       <Link
         to={"/shopping-cart"}
-        className={`${classes.submitButton}`}
         onClick={() => {
           props.onSubmit();
           //props.updateResetValue();
@@ -15,7 +14,8 @@ const OrderOverview = (props: any) => {
           //todo: show success banner
         }}
       >
-        Zum Warenkorb hinzufügen
+        {" "}
+        <button className={classes.linkButton}>Zum Warenkorb hinzufügen</button>
       </Link>
     </div>
   );
