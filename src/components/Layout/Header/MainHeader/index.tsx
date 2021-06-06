@@ -6,7 +6,7 @@ import classes from './index.module.css';
 const MainHeader = () => {
     return (
         <header className={classes.header}>
-            <div className={classes.logoWrapper}>
+            <div className={`${classes.logoWrapper}`}>
                 <Logo />
             </div>
             <Navigation/>

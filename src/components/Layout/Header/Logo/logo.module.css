@@ -1,3 +1,7 @@
-.general{
-    height: 150px;
+.general {
+  height: 150px;
+}
+
+.link {
+  text-decoration: none !important;
 }

@@ -2,61 +2,71 @@ import MainHeader from "./components/Layout/Header/MainHeader";
 import { Link, Route, Switch } from "react-router-dom";
 import ConfiguratorScreen from "./components/Layout/Body/screens/ConfiguratorScreen";
 import Datenschutzerklaerung from "./components/Layout/Body/screens/Datenschutzerklärung";
+import Lieferung from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/DeliveryDetails";
 import Impressum from "./components/Layout/Body/screens/Impressum";
+import ShoppingCart from "./components/Layout/Body/screens/ShoppingCart";
 import AgeCheckModal from "./components/Layout/Body/overlays/AgeCheckModal";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Footer from "./components/Layout/Footer";
+import classes from "./Wrapper.module.css";
+import Banner from "./components/Layout/Body/overlays/Banner";
+import DeliveryDetails from "./components/Layout/Body/screens/ConfiguratorScreen/BierKonfigurator/Configuration/DeliveryDetails";
 
 const Wrapper = () => {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders]: any = useState([]);
+  const [deliveryDetails, setDeliveryDetails] = useState([]);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const updateOrders = (props: any) => {
+    setOrders(props);
+  };
+
+  const changeShowSuccess = () => {
+    setShowSuccess(!showSuccess);
+  };
+
+  const updateDeliveryDetails = (props: any) => {
+    setDeliveryDetails(props);
+  };
+
+  const updateUserInput = (props: any) => {};
 
   return (
     <Fragment>
+      <Banner id="banner" type={"success"} visibility={showSuccess} />
       <MainHeader />
-      <Switch>
-        <Route path="/beer-configurator/:stepId">
-          <ConfiguratorScreen orders={orders} setOrders={setOrders} />
-        </Route>
-        <Route path="/data-protection" exact>
-          <Datenschutzerklaerung />
-        </Route>
-        <Route path="/imprint" exact>
-          <Impressum />
-        </Route>
-      </Switch>
-      <div className="PageWrapper">
-        <AgeCheckModal active={false} />
-        {/*<div className="header">
-                    <div className="logo"/>
-                    <div className="navigation">
-                        <a href="#">Bierkonfigurator</a>
-                        <a href="#">Top Biere</a>
-                        <a href="#">Login</a>
-                        <a href="#">Warenkorb</a>
-                    </div>
-                </div>*/}
-        {/*<div className="body">
-                    <div className="bierkonfigurator">
-                        <h2>BierKonfigurator</h2>
-                        <div className="bierkonfigurator-panel">
-                            <div className="fortschrittsbalken"/>
-                            <div className="auswahldingsi">
-                                <div className="auswahl-panel"/>
-                                <div className="auswahl-flasche"/>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>*/}
-        {/* <div className="footer">
-                    <div className="banner"/>
-                    <div className="nav-footer">
-                        <Link to="/imprint">Impressum</Link>
-                        <Link to="/data-protection">Datenschutzerklärung</Link>
-                    </div>
-                </div> */}
-        <Footer />
+      <div className={`${classes.pageWrapper}`}>
+        <Switch>
+          <Route path="/" exact>
+            <ConfiguratorScreen updateOrders={updateOrders} />
+          </Route>
+          <Route path="/beer-configurator/:stepId">
+            <ConfiguratorScreen
+              updateOrders={updateOrders}
+              updateDeliveryDetails={updateDeliveryDetails}
+            />
+          </Route>
+          <Route path="/privacy-policy" exact>
+            <Datenschutzerklaerung />
+          </Route>
+          <Route path="/imprint" exact>
+            <Impressum />
+          </Route>
+
+          <Route path="/shopping-cart" exact>
+            <ShoppingCart
+              orders={orders}
+              changeShowSuccess={changeShowSuccess}
+              deliveryDetails={deliveryDetails}
+            />
+          </Route>
+        </Switch>
+
+        <AgeCheckModal active={true} />
       </div>
+
+      <Footer />
     </Fragment>
   );
 };

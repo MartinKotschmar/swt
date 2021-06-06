@@ -1,0 +1,7 @@
+.active {
+  border-bottom: 2px solid #eee;
+  text-decoration: none;
+  color: #fff;
+  padding-bottom: 0;
+  cursor: default;
+}
