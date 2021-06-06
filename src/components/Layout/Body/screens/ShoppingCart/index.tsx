@@ -1,5 +1,6 @@
 import classes from "./ShoppingCart.module.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ShoppingCart = (props: any) => {
     //todo send data of order to the backend to finish the transaction (+ lieferdetails)
@@ -8,6 +9,7 @@ const ShoppingCart = (props: any) => {
     const orders = props.orders;
     const orders2 = [{items: [orders[0]], bottleSize: orders[1], bottleText: orders[2], bottleColor: orders[3]}];
 
+    const deliveryData = props.deliveryDetails;
 
     if (orders2[0] && orders2[0].bottleSize !== undefined) {
         const items = orders2[0].items;
@@ -64,7 +66,13 @@ const ShoppingCart = (props: any) => {
                 <hr/>
                 <p>Der Gesamtbetrag beträgt: {finalPrice + basePrice + " €"}</p>
 
-                <button className={`${classes.submitButton}`} onClick={()=>{props.changeShowSuccess();setTimeout(function(){ window.location.href = "/" }, 4500);}}>Jetzt kaufen!</button>
+                {deliveryData.length>0?
+                    <button className={`${classes.submitButton}`} onClick={()=>{props.changeShowSuccess();setTimeout(function(){ window.location.href = "/" }, 4500);}}>Jetzt kaufen!</button>
+                    :
+                    <Link to={"/delivery"} className={`${classes.submitButton}`} >Lieferdetails hinzufügen</Link>
+
+                }
+
             </div>
         );
     } else {
