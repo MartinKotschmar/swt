@@ -21,9 +21,6 @@ const Navigation = () => {
           <NavLink to="/shopping-cart">Warenkorb</NavLink>
         </li>
         <li>
-          <NavLink to="/delivery">Lieferung</NavLink>
-        </li>
-        <li>
           <a target="_blank" rel="noreferrer" href={STOCK_PATH}>
             Warenbestand
           </a>

@@ -39,11 +39,7 @@ const StepDetails = (props: any) => {
           <DeliveryDetails
             updateDeliveryDetails={props.updateDeliveryDetails}
           />
-          //   <Link to={"/delivery"}>
-          //     <button className={classes.linkButton}>
-          //       Zu LieferDetails wechseln
-          //     </button>
-          //   </Link>
+
         );
       } else if (step.linkText === "step-5") {
         setContent(

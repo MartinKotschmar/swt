@@ -8,15 +8,6 @@ const AgeCheckModal = (props: any) => {
 
     const [active, setActive] = useState(props.active);
     const [cookies, setCookie] = useCookies(['ageCheck']);
-    // const cookies: any = new Cookies();
-    // useEffect(()=>{
-    //     if (cookies.get("ageCheck") && cookies.get("ageCheck").value) {
-    //         setActive(true);
-    //     } else {
-    //         setActive(false)
-    //     }
-    // }, [active])
-
 
     const backdropPortalRoot = document.getElementById("backdrop-root");
     const modalPortalRoot = document.getElementById("overlay-root");
@@ -25,11 +16,11 @@ const AgeCheckModal = (props: any) => {
     const onClick = (userInput: string) => {
         if (userInput === "confirm") {
             setActive(false);
-            setCookie('ageCheck', false, { path: '/' });
+            setCookie('ageCheck', true, { path: '/' });
         } else {
             window.location.href =
                 "https://de.wikipedia.org/wiki/Alkoholersterwerbsalter"
-        };
+        }
     };
 
     return backdropPortalRoot && modalPortalRoot && !cookies.ageCheck? (

@@ -103,26 +103,20 @@ const ShoppingCart = (props: any) => {
                     Der Gesamtpreis beträgt: {`${(finalPrice + basePrice).toFixed(2)}  €`}
                 </p>
                 <div className={`${classes.mv_12}`}>
-                    {deliveryData.length === 0 ? (
+
                         <button
                             className={`${classes.submitButton}`}
                             onClick={() => {
                                 props.changeShowSuccess();
                                 window.scrollTo(0, 0);
                                 setTimeout(function () {
-                                    window.location.reload();
+                                    window.location.href = '/beer-configurator/step-1'
                                 }, 4100);
                             }}
                         >
                             Jetzt kaufen!
                         </button>
-                    ) : (
-                        <Link to={"/delivery"}>
-                            <button className={classes.linkButton}>
-                                Lieferdetails hinzufügen
-                            </button>
-                        </Link>
-                    )}
+
                 </div>
             </div>
         );

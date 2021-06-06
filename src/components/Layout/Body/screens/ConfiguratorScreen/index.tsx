@@ -48,19 +48,11 @@ const ConfiguratorScreen = (props: any) => {
     return currentOrder;
   };
 
-<<<<<<< Updated upstream
     const onSubmit = () => {
         const data = [currentOrder, size, enteredText, color]
         props.updateOrders(data);
     };
-=======
-  const onSubmit = () => {
-    const data = [currentOrder, size, enteredText, color];
-    props.updateOrders(data);
-    currentOrder = [];
-    return currentOrder;
-  };
->>>>>>> Stashed changes
+
 
   const onBottleChange = (props: any) => {
     if (props.size !== size) return (size = props.size);
