@@ -7,25 +7,29 @@ import Lieferung
 import Impressum from "./components/Layout/Body/screens/Impressum";
 import ShoppingCart from "./components/Layout/Body/screens/ShoppingCart";
 import AgeCheckModal from "./components/Layout/Body/overlays/AgeCheckModal";
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import Footer from "./components/Layout/Footer";
 import classes from "./Wrapper.module.css";
+import Banner from "./components/Layout/Body/overlays/Banner";
 
 const Wrapper = () => {
 
-    // let orders: any = [];
     const [orders, setOrders]: any = useState([]);
+    const [showSuccess, setShowSuccess] = useState(false);
 
-    const updateOrders = (newItems: any, size: string, enteredText: string, color: string) => {
-        setOrders([{items: [...orders, newItems], bottleSize: size, bottleText: enteredText, bottleColor: color}]);
+    const updateOrders = (props: any) => {
+        console.log(props);
+        setOrders(props);
     };
 
-    // const getOrder = () => {
-    //     return orders;
-    // }
+    const changeShowSuccess = () => {
+        setShowSuccess(!showSuccess);
+    }
+
 
     return (
         <Fragment>
+            <Banner type={'success'} visibility={showSuccess}/>
             <MainHeader/>
 
             <div className={`${classes.pageWrapper}`}>
@@ -42,8 +46,9 @@ const Wrapper = () => {
                     <Route path="/imprint" exact>
                         <Impressum/>
                     </Route>
+
                     <Route path="/shopping-cart" exact>
-                        <ShoppingCart orders={orders}/>
+                        <ShoppingCart orders={orders} changeShowSuccess={changeShowSuccess}/>
                     </Route>
                     <Route path="/delivery" exact>
                         <Lieferung/>

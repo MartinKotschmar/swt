@@ -15,17 +15,13 @@ type orderItem = {
 const ConfiguratorScreen = (props: any) => {
 
     let currentOrder: orderItem[] = [];
-    let size: string;
-    let enteredText: string;
-    let color: string;
+    let size: string = '0,5L';
+    let enteredText: string = '';
+    let color: string = 'brown';
 
 
-    const onChange = (props: any) => {
-        const {value, id, price, title, categories} = props;
-
-        console.log(currentOrder);
-        console.log(props);
-
+    const onChange = (props: any, value:any) => {
+        const {id, price, title, categories} = props;
 
         //check if item already exists in currentOrder
         if (currentOrder.length > 0) {
@@ -33,7 +29,6 @@ const ConfiguratorScreen = (props: any) => {
                 if (id === currentOrder[i].id) {
                     return currentOrder.splice(i, 1);
                 }
-
             }
         }
 
@@ -48,7 +43,6 @@ const ConfiguratorScreen = (props: any) => {
                 categories: categories,
             },
         ];
-        console.log(currentOrder);
         return currentOrder;
     };
 
@@ -62,12 +56,13 @@ const ConfiguratorScreen = (props: any) => {
             3. create more items (reset states)
           */
     const onSubmit = () => {
-        props.updateOrders(currentOrder, size, enteredText, color);
+        const data = [currentOrder, size, enteredText, color]
+        props.updateOrders(data);
         currentOrder = [];
         return currentOrder;
     };
 
-    const onBottleChange = (props: { size: string, enteredText: string, color: string }) => {
+    const onBottleChange = (props: any) => {
         if (props.size !== size) return size = props.size;
         if (props.enteredText !== enteredText) return enteredText = props.enteredText;
         if (props.color !== color) return color = props.color;

@@ -24,8 +24,7 @@ const IngredientItem = (props: any) => {
         checked={value}
         name={setName}
         onChange={() => {
-            console.log(props);
-          props.onChange(props.id, !value, props.price.amount, props.title, props.categories);
+          props.onChange(props, !value);
           setValue(!value);
         }}
       />

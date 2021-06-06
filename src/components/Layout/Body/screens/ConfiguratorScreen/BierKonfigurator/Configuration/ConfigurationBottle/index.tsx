@@ -92,7 +92,7 @@ const ConfigurationBottle = (props: any) => {
         }
 
         const onChange = () => {
-            props.onBottleChange(bottle.size, bottle.enteredText, bottle.color);
+            props.onBottleChange(bottle);
         }
 
 

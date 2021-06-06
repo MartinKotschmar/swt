@@ -1,0 +1,43 @@
+.visible{
+    display: block;
+}
+.hide{
+    display: none;
+}
+
+.success{
+    background-color: rgba(11, 224, 7, 0.73);
+}
+
+.banner{
+    width:250px;
+    height:60px;
+    color: #fff;
+    top: 0;
+    border-radius: 4px;
+
+    text-align: center;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    animation: MoveUpDown 4s ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+@keyframes MoveUpDown {
+    0%, 100% {
+        top: -60px;
+    }
+    25%, 75% {
+        top: 0;
+    }
+}
+
+.banner p {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+}

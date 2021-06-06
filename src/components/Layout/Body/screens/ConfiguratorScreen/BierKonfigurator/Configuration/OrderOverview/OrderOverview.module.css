@@ -6,6 +6,7 @@
     padding: 4px 24px;
     border-radius: 20px;
     background-color: #da7817;
+    cursor: pointer;
 }
 
 .submitButton:hover {
