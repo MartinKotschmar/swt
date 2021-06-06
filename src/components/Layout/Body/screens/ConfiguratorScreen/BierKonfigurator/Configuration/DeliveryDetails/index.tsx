@@ -1,69 +1,47 @@
 import classes from "./deliveryDetails.module.css";
-import {Link} from "react-router-dom";
+
 import React, {useState} from "react";
 
 const DeliveryDetails = (props: any) => {
     const [status, setStatus] = useState(true);
-    let customerDetails: any = [];
+    const [deliveryStatus, setDeliveryStatus] = useState("");
+    const [deliveryDetails, setDeliveryDetails]: any = useState([])
+
+
     const optionChangeHandler = () => {
         setStatus(false);
-        console.log(status);
     };
-    const submitClickHandler = (e: any) => {
+
+    const submitClickHandler: any = (e: any) => {
         e.preventDefault();
-        console.log(customerDetails);
-        props.updateDeliveryDetails(customerDetails);
+        checkValid();
+        if (deliveryStatus === "valid") props.updateDeliveryDetails(deliveryDetails);
     };
 
-    const [title, setTitle] = useState("");
-    const [surname, setSurname] = useState("");
-    const [name, setName] = useState("");
-    const [mail, setMail] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [zip, setZip] = useState("");
-    const [city, setCity] = useState("");
-    const [street, setStreet] = useState("");
-    const [houseNumber, setHouseNumber] = useState("");
-
-
-    const inputChangeHandler = (label: string, value: any) => {
-        props.userInputHander(label, value);
+    const checkValid = () => {
+        console.log(deliveryDetails);
+        (deliveryDetails.length < 9) ? setDeliveryStatus("invalid") : setDeliveryStatus("valid")
     };
 
     const onChange = (label: string, value: any) => {
         //check if item already exists in currentOrder
-        if (customerDetails.length > 0) {
-            for (let i = 0; i < customerDetails.length; i++) {
-                if (label === customerDetails[i].label) {
-                    inputChangeHandler(label, value);
-                    return customerDetails.splice(i, 1);
+        if (deliveryDetails.length > 0) {
+            for (let i = 0; i < deliveryDetails.length; i++) {
+                if (label === deliveryDetails[i].label) {
+                    setDeliveryDetails(deliveryDetails.splice(i, 1));
                 }
             }
         }
 
         //add item to currentOrder
-        customerDetails = [
-            ...customerDetails,
+        setDeliveryDetails([
+            ...deliveryDetails,
             {
                 label: label,
                 value: value,
             },
-        ];
-        return customerDetails;
+        ]);
     };
-
-    const saveTolocalStorage = () => {
-        localStorage.setItem('title', title);
-        localStorage.setItem('surname', surname);
-        localStorage.setItem('name', name);
-        localStorage.setItem('mail', mail);
-        localStorage.setItem('phoneNumber', phoneNumber);
-        localStorage.setItem('zip', zip);
-        localStorage.setItem('city', city);
-        localStorage.setItem('street', street);
-        localStorage.setItem('houseNumber', houseNumber);
-
-    }
 
     return (
         <div className={classes.wrapper}>
@@ -81,9 +59,9 @@ const DeliveryDetails = (props: any) => {
                                         id="title"
                                         onChange={(e) => {
                                             optionChangeHandler();
-                                            setTitle(e.target.value);
+                                            onChange("title", e.target.value);
                                         }}
-                                        required
+                                        required={true}
                                     >
                                         <option
                                             className={`${
@@ -103,68 +81,68 @@ const DeliveryDetails = (props: any) => {
                                 </div>
                                 <div className={classes.input_div}>
                                     <label className={classes.label}>
-                    <span>
-                      <strong>Vorname</strong>
-                    </span>
+                                        <span>
+                                            <strong>Vorname</strong>
+                                        </span>
                                     </label>
                                     <input
                                         onChange={(e) => {
-                                            setSurname(e.target.value);
+                                            onChange("preName", e.target.value);
                                         }}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="text"
                                         minLength={2}
-                                        pattern="[A-Za-z]"
-                                        required
+                                        pattern="[A-Z a-z]*"
+                                        required={true}
                                     />
                                 </div>
                                 <div className={classes.input_div}>
                                     <label className={classes.label}>
-                    <span>
-                      <strong>Nachname</strong>
-                    </span>
+                                        <span>
+                                            <strong>Nachname</strong>
+                                        </span>
                                     </label>
                                     <input
                                         onChange={(e) => {
-                                            setName(e.target.value);
+                                            onChange("lastName", e.target.value);
                                         }}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="text"
                                         minLength={2}
-                                        pattern="[A-Za-z]"
-                                        required
+                                        pattern="[A-Za-z]*"
+                                        required={true}
                                     />
                                 </div>
                                 <div className={classes.input_div}>
                                     <label className={classes.label}>
-                    <span>
-                      <strong>E-Mail</strong>
-                    </span>
+                                        <span>
+                                          <strong>E-Mail</strong>
+                                        </span>
                                     </label>
                                     <input
                                         onChange={(e) => {
-                                            setMail(e.target.value);
+                                            onChange("email", e.target.value);
                                         }}
                                         className={`${classes.input} ${classes.input_long}`}
-                                        type="text"
+                                        type={"email"}
                                         minLength={5}
-                                        required
+                                        required={true}
                                     />
                                 </div>
                                 <div className={classes.input_div}>
                                     <label className={classes.label}>
-                    <span>
-                      <strong>Telefonnummer</strong>
-                    </span>
+                                        <span>
+                                          <strong>Telefonnummer</strong>
+                                        </span>
                                     </label>
                                     <input
                                         onChange={(e) => {
-                                            setPhoneNumber(e.target.value);
+                                            onChange("mobileNumber", e.target.value);
                                         }}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="number"
                                         minLength={5}
-                                        required
+                                        required={true}
                                     />
                                 </div>
                             </div>
@@ -173,13 +151,13 @@ const DeliveryDetails = (props: any) => {
                         <div className={classes.adress}>
                             <div className={classes.adress_Child}>
                                 <label className={classes.label}>
-                  <span>
-                    <strong>Postleitzahl</strong>
-                  </span>
+                                  <span>
+                                    <strong>Postleitzahl</strong>
+                                  </span>
                                 </label>
                                 <input
                                     onChange={(e) => {
-                                        setZip(e.target.value);
+                                        onChange("zipCode", e.target.value);
                                     }}
                                     className={`${classes.input} ${classes.input_short}`}
                                     type="number"
@@ -187,70 +165,78 @@ const DeliveryDetails = (props: any) => {
                                     max={99998}
                                     minLength={5}
                                     maxLength={5}
-                                    pattern="[0-9]"
+                                    pattern="[0-9]{6}"
+                                    required={true}
                                 />
                             </div>
                             <div className={classes.adress_Child}>
                                 <label className={classes.label}>
-                  <span>
-                    <strong>Wohnort</strong>
-                  </span>
+                                  <span>
+                                    <strong>Wohnort</strong>
+                                  </span>
                                 </label>
                                 <input
                                     onChange={(e) => {
-                                        setCity(e.target.value);
+                                        onChange("city", e.target.value);
                                     }}
                                     className={`${classes.input} ${classes.input_long}`}
                                     type="text"
                                     minLength={2}
-                                    pattern="[A-Za-z]"
+                                    pattern="[A-Za-z]*"
+                                    required={true}
                                 />
                             </div>
-                            {/* <div className={`${classes.flexGroup2}`}> */}
                             <div className={classes.adress_Child}>
                                 <label className={classes.label}>
-                  <span>
-                    <strong>Straße</strong>
-                  </span>
+                                  <span>
+                                    <strong>Straße</strong>
+                                  </span>
                                 </label>
                                 <input
                                     onChange={(e) => {
-                                        setStreet(e.target.value);
+                                        onChange("street", e.target.value);
                                     }}
                                     className={`${classes.input} ${classes.input_long}`}
                                     type="text"
                                     minLength={3}
-                                    pattern="[A-Za-z0-9\s]"
+                                    pattern="[A-Za-z0-9\s]*"
+                                    required={true}
                                 />
                             </div>
                             <div
                                 className={`${classes.adress_Child} ${classes.adress_Child_short}`}
                             >
                                 <label className={classes.label}>
-                  <span>
-                    <strong>Hausnummer</strong>
-                  </span>
+                                  <span>
+                                    <strong>Hausnummer</strong>
+                                  </span>
                                 </label>
                                 <input
                                     onChange={(e) => {
-                                        setHouseNumber(e.target.value);
+                                        onChange("houseNumber", e.target.value);
                                     }}
                                     className={`${classes.input} ${classes.input_short}`}
                                     type="number"
                                     min={1}
-                                    pattern="[0-9]"
+                                    pattern="[0-9]{4}"
+                                    required={true}
                                 />
                             </div>
-                            {/* </div> */}
                         </div>
                     </div>
                     <div className={classes.button_wrapper}>
-                        <Link to={"/shopping-cart"}>
-                            <button className={classes.linkButton} onClick={saveTolocalStorage}>
-                                {" "}
-                                Lieferdetails bestätigen
-                            </button>
-                        </Link>
+
+                        <button className={classes.linkButton} onClick={(event) => {
+                            submitClickHandler(event);
+                        }}>
+                            {" "}
+                            Lieferdetails bestätigen
+                        </button>
+                        {(deliveryStatus === "valid") ?
+                            <p style={{color: 'green', border: "1px solid green", padding: "4px 8px"}}>Die Lieferdetails
+                                wurden erfolgreich übernommen!</p> : (deliveryStatus === "invalid") ?
+                                <p style={{color: 'red', border: "1px solid red", padding: "4px 8px"}}>Die Lieferdetails
+                                    sind unvollständig!</p> : null}
                     </div>
                 </form>
             </div>

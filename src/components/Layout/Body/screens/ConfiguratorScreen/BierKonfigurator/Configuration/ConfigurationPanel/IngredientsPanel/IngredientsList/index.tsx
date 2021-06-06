@@ -13,7 +13,7 @@ const IngredientsList = (props: any) => {
         <div className={`${classes.container} ${classes.ingredientList}`}>
             {props.ingredients.map((element: any, i: number) => {
                 let setType = "checkbox";
-                if (element.categories[0].includes("Komponente")) {
+                if (element.categories.includes("Komponente")) {
                     setType = "radio";
                 }
                 const category = element.categories.filter((e: any) => e !== 'Komponente' && e !== 'Zutat');

@@ -16,12 +16,6 @@ const StepDetails = (props: any) => {
     };
     const {step} = props;
 
-    const [userInput, setUserInput] = useState({});
-
-    const userInputHandler = (inputLabel: string, getUserInput: any) => {
-        setUserInput({...userInput, label: inputLabel, value: getUserInput});
-    };
-
     async function fetchAndRenderContent() {
         if (ingredients.length === 0) {
             if (step.category !== "") {
@@ -39,7 +33,6 @@ const StepDetails = (props: any) => {
                 setContent(
                     <DeliveryDetails
                         updateDeliveryDetails={props.updateDeliveryDetails}
-                        userInputHandler={userInputHandler}
                     />
                 );
             } else if (step.linkText === "step-5") {

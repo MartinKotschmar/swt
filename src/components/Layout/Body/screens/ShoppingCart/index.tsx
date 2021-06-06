@@ -14,6 +14,8 @@ const ShoppingCart = (props: any) => {
         },
     ];
 
+    const deliveryData = props.deliveryDetails;
+
     if (orders2[0] && orders2[0].bottleSize !== undefined) {
         const items = orders2[0].items;
         const order = orders2[0];
@@ -96,19 +98,6 @@ const ShoppingCart = (props: any) => {
                 <p>
                     Der Gesamtpreis beträgt: {`${(finalPrice + basePrice).toFixed(2)}  €`}
                 </p>
-                <div>
-                    <p>
-                        <p>Anrede: {localStorage.getItem("title") && localStorage.getItem("title")}</p>
-                        <p>Vorname: {localStorage.getItem("surname") && localStorage.getItem("surname")}</p>
-                        <p>Nachname: {localStorage.getItem("name") && localStorage.getItem("name")}</p>
-                        <p>E-Mail: {localStorage.getItem("mail") && localStorage.getItem("mail")}</p>
-                        <p>Telefonnummer: {localStorage.getItem("phoneNumber") && localStorage.getItem("phoneNumber")}</p>
-                        <p>Postleitzahl: {localStorage.getItem("zip") && localStorage.getItem("zip")}</p>
-                        <p>Stadt: {localStorage.getItem("city") && localStorage.getItem("city")}</p>
-                        <p>Straße: {localStorage.getItem("street") && localStorage.getItem("street")}</p>
-                        <p>Hausnummer: {localStorage.getItem("houseNumber") && localStorage.getItem("houseNumber")}</p>
-                    </p>
-                </div>
                 <div className={`${classes.mv_12}`}>
 
                     <button
