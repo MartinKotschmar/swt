@@ -1,21 +1,28 @@
 import classes from "./deliveryDetails.module.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 const DeliveryDetails = (props: any) => {
+
   //TODO add button to go back to bierkonfigurator (history eins zurück)
   const [status, setStatus] = useState(true);
+    const [deliveryStatus, setDeliveryStatus] = useState("");
+    const [deliveryDetails, setDeliveryDetails]: any = useState([])
   let customerDetails: any = [];
-  const optionChangeHandler = () => {
-    setStatus(false);
-    console.log(status);
-  };
-  const submitClickHandler = (e: any) => {
-    e.preventDefault();
-    console.log(customerDetails);
-    props.updateDeliveryDetails(customerDetails);
-  };
+    const optionChangeHandler = () => {
+        setStatus(false);
+    };
+    const submitClickHandler: any = (e: any) => {
+        e.preventDefault();
+        checkValid();
+        if (deliveryStatus === "valid") props.updateDeliveryDetails(deliveryDetails);
+    };
+    const checkValid = () => {
+        console.log(deliveryDetails);
+        saveTolocalStorage();
+        (localStorage.length < 9) ? setDeliveryStatus("invalid") : setDeliveryStatus("valid")
+    };
 
   //const [userInput, setUserInput] = useState("");
   const [title, setTitle] = useState("");
@@ -35,27 +42,25 @@ const DeliveryDetails = (props: any) => {
     props.userInputHander(label, value);
   };
 
-  const onChange = (label: string, value: any) => {
-    //check if item already exists in currentOrder
-    if (customerDetails.length > 0) {
-      for (let i = 0; i < customerDetails.length; i++) {
-        if (label === customerDetails[i].label) {
-          inputChangeHandler(label, value);
-          return customerDetails.splice(i, 1);
+    const onChange = (label: string, value: any) => {
+        //check if item already exists in currentOrder
+        if (deliveryDetails.length > 0) {
+            for (let i = 0; i < deliveryDetails.length; i++) {
+                if (label === deliveryDetails[i].label) {
+                    setDeliveryDetails(deliveryDetails.splice(i, 1));
+                }
+            }
         }
-      }
-    }
 
-    //add item to currentOrder
-    customerDetails = [
-      ...customerDetails,
-      {
-        label: label,
-        value: value,
-      },
-    ];
-    return customerDetails;
-  };
+        //add item to currentOrder
+        setDeliveryDetails([
+            ...deliveryDetails,
+            {
+                label: label,
+                value: value,
+            },
+        ]);
+    };
 
   const saveTolocalStorage = () => {
     localStorage.setItem('title', title);
@@ -89,7 +94,7 @@ const DeliveryDetails = (props: any) => {
                       //onChange("title", e.target.value);
                       setTitle(e.target.value);
                     }}
-                    required
+                    required={true}
                   >
                     <option
                       className={`${
@@ -121,8 +126,9 @@ const DeliveryDetails = (props: any) => {
                     className={`${classes.input} ${classes.input_long}`}
                     type="text"
                     minLength={2}
-                    pattern="[A-Za-z]"
-                    required
+                    pattern="[A-Z a-z]*"
+                    required={true}
+
                   />
                 </div>
                 <div className={classes.input_div}>
@@ -139,8 +145,8 @@ const DeliveryDetails = (props: any) => {
                       className={`${classes.input} ${classes.input_long}`}
                       type="text"
                       minLength={2}
-                      pattern="[A-Za-z]"
-                      required
+                      pattern="[A-Za-z]*"
+                      required={true}
                   />
                 </div>
                 <div className={classes.input_div}>
@@ -172,7 +178,7 @@ const DeliveryDetails = (props: any) => {
                     className={`${classes.input} ${classes.input_long}`}
                     type="number"
                     minLength={5}
-                    required
+                    required={true}
                   />
                 </div>
               </div>
@@ -195,7 +201,8 @@ const DeliveryDetails = (props: any) => {
                   max={99998}
                   minLength={5}
                   maxLength={5}
-                  pattern="[0-9]"
+                  pattern="[0-9]{5}"
+                  required={true}
                 />
               </div>
               <div className={classes.adress_Child}>
@@ -211,7 +218,8 @@ const DeliveryDetails = (props: any) => {
                   className={`${classes.input} ${classes.input_long}`}
                   type="text"
                   minLength={2}
-                  pattern="[A-Za-z]"
+                  pattern="[A-Za-z]*"
+                  required={true}
                 />
               </div>
               {/* <div className={`${classes.flexGroup2}`}> */}
@@ -228,7 +236,8 @@ const DeliveryDetails = (props: any) => {
                   className={`${classes.input} ${classes.input_long}`}
                   type="text"
                   minLength={3}
-                  pattern="[A-Za-z0-9\s]"
+                  pattern="[A-Za-z0-9\s]*"
+                  required={true}
                 />
               </div>
               <div
@@ -246,24 +255,32 @@ const DeliveryDetails = (props: any) => {
                   className={`${classes.input} ${classes.input_short}`}
                   type="number"
                   min={1}
-                  pattern="[0-9]"
+                  pattern="[0-9]{4}"
+                  required={true}
                 />
               </div>
               {/* </div> */}
             </div>
           </div>
-          <div className={classes.button_wrapper}>
-            <Link to={"/shopping-cart"}>
-              <button className={classes.linkButton} onClick={saveTolocalStorage}>
-                {" "}
-                Lieferdetails bestätigen
-              </button>
-            </Link>
-          </div>
+            <div className={classes.button_wrapper}>
+
+                <button className={classes.linkButton} onClick={(event) => {
+                    submitClickHandler(event);
+                }}>
+                    {" "}
+                    Lieferdetails bestätigen
+                </button>
+                {(deliveryStatus === "valid") ?
+                    <p style={{color: 'green', border: "1px solid green", padding: "4px 8px"}}>Die Lieferdetails
+                        wurden erfolgreich übernommen!</p> : (deliveryStatus === "invalid") ?
+                        <p style={{color: 'red', border: "1px solid red", padding: "4px 8px"}}>Die Lieferdetails
+                            sind unvollständig!</p> : null}
+            </div>
         </form>
       </div>
     </div>
   );
+
 };
 
 export default DeliveryDetails;

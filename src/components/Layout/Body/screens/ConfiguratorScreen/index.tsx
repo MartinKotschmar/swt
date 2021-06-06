@@ -55,6 +55,7 @@ const ConfiguratorScreen = (props: any) => {
     return currentOrder;
   };
 
+
   const onBottleChange = (props: any) => {
     if (props.size !== size) return (size = props.size);
     if (props.enteredText !== enteredText)

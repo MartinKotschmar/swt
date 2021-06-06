@@ -43,7 +43,7 @@ const ConfigurationSteps = (props: any) => {
                                           }}
                                     >
                                         <div
-                                            className={`${classes.dot} ${point.status ? classes.finished : classes.unfinished}`}/>
+                                            className={`${classes.dot} ${"step-" +(active+1) === point.linkText? classes.dotActive:""} ${point.status ? classes.finished : classes.unfinished}`}/>
                                     </Link>
                                     {navPoints[i + 1] ? <div
                                             className={`${classes.connectionLine2} ${navPoints[i + 1].status === 1 ? classes.finished : classes.unfinished}`}/> :

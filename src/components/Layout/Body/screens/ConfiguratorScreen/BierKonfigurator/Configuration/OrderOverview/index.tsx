@@ -9,9 +9,6 @@ const OrderOverview = (props: any) => {
         to={"/shopping-cart"}
         onClick={() => {
           props.onSubmit();
-          //props.updateResetValue();
-          //props.resetNavPoints();
-          //todo: show success banner
         }}
       >
         {" "}

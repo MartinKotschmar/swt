@@ -46,6 +46,7 @@ const StepDetails = (props: any) => {
             updateDeliveryDetails={props.updateDeliveryDetails}
             userInputHandler={userInputHandler}
           />
+
         );
       } else if (step.linkText === "step-5") {
         setContent(
