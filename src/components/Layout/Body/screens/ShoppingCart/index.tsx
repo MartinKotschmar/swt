@@ -99,7 +99,9 @@ const ShoppingCart = (props: any) => {
           </div>
         </section>
         <hr />
-        <p>Der Gesamtpreis beträgt: {finalPrice + basePrice + " €"}</p>
+        <p>
+          Der Gesamtpreis beträgt: {`${(finalPrice + basePrice).toFixed(2)}  €`}
+        </p>
 
         {deliveryData.length > 0 ? (
           <button
