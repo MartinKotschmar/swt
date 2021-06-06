@@ -22,7 +22,7 @@ const ConfigurationSteps = (props: any) => {
                         return (
                             <li className={classes.flex_4} key={i}>
                                 <div
-                                    className={`${classes.hoverText} ${classes.textHeight}`}
+                                    className={`${classes.hoverText} ${classes.textHeight} ${(point.hoverText.length > 10)? classes.b_1:""}`}
                                 >{navPoints[i].showHover ? point.hoverText : ""}
                                 </div>
                                 <div className={classes.flex}>

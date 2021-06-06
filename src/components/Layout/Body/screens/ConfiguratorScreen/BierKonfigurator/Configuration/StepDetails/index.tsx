@@ -3,6 +3,7 @@ import IngredientsList from "../ConfigurationPanel/IngredientsPanel/IngredientsL
 import OrderOverview from "../OrderOverview";
 import classes from "./stepDetails.module.css";
 import {API_BASE_URL} from "../../../../../../../../constants";
+import { Link } from "react-router-dom";
 
 const StepDetails = (props: any) => {
     //const params: any = useParams();
@@ -31,7 +32,13 @@ const StepDetails = (props: any) => {
                         resetValues={reset}
                     />
                 );
-            } else if (step.linkText === "step-6") {
+            }else if (step.linkText==="step-4"){//TODO Button stylen
+                setContent(
+                    <Link
+                        to={"/delivery"}
+                    >Zu LieferDetails wechseln</Link>
+                );
+            } else if (step.linkText === "step-5") {
                 setContent(
                     <OrderOverview
                         onSubmit={props.onSubmit}

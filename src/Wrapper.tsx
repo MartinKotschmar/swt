@@ -15,10 +15,10 @@ import Banner from "./components/Layout/Body/overlays/Banner";
 const Wrapper = () => {
 
     const [orders, setOrders]: any = useState([]);
+    const [deliveryDetails, setDeliveryDetails] = useState([]);
     const [showSuccess, setShowSuccess] = useState(false);
 
     const updateOrders = (props: any) => {
-        console.log(props);
         setOrders(props);
     };
 
@@ -26,6 +26,9 @@ const Wrapper = () => {
         setShowSuccess(!showSuccess);
     }
 
+    const updateDeliveryDetails = (props: any) => {
+        setDeliveryDetails(props);
+    };
 
     return (
         <Fragment>
@@ -48,10 +51,10 @@ const Wrapper = () => {
                     </Route>
 
                     <Route path="/shopping-cart" exact>
-                        <ShoppingCart orders={orders} changeShowSuccess={changeShowSuccess}/>
+                        <ShoppingCart orders={orders} changeShowSuccess={changeShowSuccess} deliveryDetails={deliveryDetails}/>
                     </Route>
                     <Route path="/delivery" exact>
-                        <Lieferung/>
+                        <Lieferung updateDeliveryDetails={updateDeliveryDetails}/>
                     </Route>
                 </Switch>
 

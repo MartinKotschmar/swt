@@ -65,6 +65,10 @@
     color: gray;
 }
 
+.b_1{
+    bottom: 1rem;
+}
+
 .hoverText.hide{
     display: none;
 }

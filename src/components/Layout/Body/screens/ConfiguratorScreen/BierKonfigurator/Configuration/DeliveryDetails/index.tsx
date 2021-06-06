@@ -3,16 +3,40 @@ import "./deliveryDetails.css";
 
 import React, {useState} from "react";
 
-const DeliveryDetails = () => {
+const DeliveryDetails = (props:any) => {//TODO add button to go back to bierkonfigurator (history eins zurück)
     const [status, setStatus] = useState(true);
-    //const [costomerDetails, setCostomerDetails] = useState();
+    let customerDetails:any = [];
     const optionChangeHandler = () => {
         setStatus(false);
         console.log(status);
     };
     const submitClickHandler = (e: any) => {
         e.preventDefault();
+        console.log(customerDetails);
+        props.updateDeliveryDetails(customerDetails);
     };
+
+    const onChange = (label:string, value:any) =>{
+            //check if item already exists in currentOrder
+            if (customerDetails.length > 0) {
+                for (let i = 0; i < customerDetails.length; i++) {
+                    if (label === customerDetails[i].label) {
+                        return customerDetails.splice(i, 1);
+                    }
+                }
+            }
+
+            //add item to currentOrder
+        customerDetails = [
+                ...customerDetails,
+                {
+                    label:label,
+                    value:value
+                },
+            ];
+            return customerDetails;
+        };
+
 
     return (
         <div className={classes.wrapper}>
@@ -26,7 +50,7 @@ const DeliveryDetails = () => {
                                     <select
                                         name="title"
                                         id="title"
-                                        onChange={optionChangeHandler}
+                                        onChange={(e)=>{optionChangeHandler();onChange("title", e.target.value);}}
                                         required
                                     >
                                         <option className={`active-${status}`} value="selection">
@@ -45,6 +69,7 @@ const DeliveryDetails = () => {
                                         <span>Vorname</span>
                                     </label>
                                     <input
+                                        onChange={(e)=>{onChange("preName", e.target.value);}}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="text"
                                         minLength={2}
@@ -57,6 +82,7 @@ const DeliveryDetails = () => {
                                         <span>Nachname</span>
                                     </label>
                                     <input
+                                        onChange={(e)=>{onChange("lastName", e.target.value);}}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="text"
                                         minLength={2}
@@ -69,6 +95,7 @@ const DeliveryDetails = () => {
                                         <span>E-Mail</span>
                                     </label>
                                     <input
+                                        onChange={(e)=>{onChange("email", e.target.value);}}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="text"
                                         minLength={5}
@@ -80,6 +107,7 @@ const DeliveryDetails = () => {
                                         <span>Telefonnummer</span>
                                     </label>
                                     <input
+                                        onChange={(e)=>{onChange("mobileNumber", e.target.value);}}
                                         className={`${classes.input} ${classes.input_long}`}
                                         type="number"
                                         minLength={5}
@@ -95,6 +123,7 @@ const DeliveryDetails = () => {
                                     <span>Straße</span>
                                 </label>
                                 <input
+                                    onChange={(e)=>{onChange("street", e.target.value);}}
                                     className={`${classes.input} ${classes.input_long}`}
                                     type="text"
                                     minLength={3}
@@ -106,6 +135,7 @@ const DeliveryDetails = () => {
                                     <span>Wohnort</span>
                                 </label>
                                 <input
+                                    onChange={(e)=>{onChange("city", e.target.value);}}
                                     className={`${classes.input} ${classes.input_long}`}
                                     type="text"
                                     minLength={2}
@@ -119,6 +149,7 @@ const DeliveryDetails = () => {
                                     <span>Hausnummer</span>
                                 </label>
                                 <input
+                                    onChange={(e)=>{onChange("houseNumber", e.target.value);}}
                                     className={`${classes.input} ${classes.input_short}`}
                                     type="number"
                                     min={1}
@@ -130,6 +161,7 @@ const DeliveryDetails = () => {
                                     <span>Postleitzahl</span>
                                 </label>
                                 <input
+                                    onChange={(e)=>{onChange("zipCode", e.target.value);}}
                                     className={`${classes.input} ${classes.input_short}`}
                                     type="number"
                                     min={1001}
