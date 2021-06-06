@@ -20,6 +20,7 @@ const IngredientItem = (props: any) => {
     <label key={props.id} className={`${classes.container}`}>
       <span className={`${classes.title}`}>{props.title}</span>
       <input
+        required
         type={setType}
         checked={value}
         name={setName}

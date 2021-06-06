@@ -14,7 +14,10 @@ const AgeCheckModal = (props: any) => {
   };
 
   const onClick = (userInput: string) => {
-    userInput === "confirm" ? setActive(false) : leaveWebsite();
+    userInput === "confirm"
+      ? setActive(false)
+      : (window.location.href =
+          "https://de.wikipedia.org/wiki/Alkoholersterwerbsalter");
   };
 
   return backdropPortalRoot && modalPortalRoot ? (
