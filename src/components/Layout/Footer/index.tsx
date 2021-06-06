@@ -12,12 +12,12 @@ const Footer = () => {
       <nav className={classes.navigation}>
         <ul>
           <li>
-            <NavLink to="/imprint" onClick={scrollHandler}>
+            <NavLink to="/imprint" className={classes.link} onClick={scrollHandler}>
               Impressum
             </NavLink>
           </li>
           <li>
-            <NavLink to="/privacy-policy" onClick={scrollHandler}>
+            <NavLink to="/privacy-policy" className={classes.link} onClick={scrollHandler}>
               Datenschutzerklärung
             </NavLink>
           </li>
