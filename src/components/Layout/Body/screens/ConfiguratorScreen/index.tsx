@@ -12,6 +12,7 @@ type orderItem = {
     name: string
 };
 
+
 const ConfiguratorScreen = (props: any) => {
 
     let currentOrder: orderItem[] = [];
@@ -37,8 +38,6 @@ const ConfiguratorScreen = (props: any) => {
 
             }
         }
-      }
-    }
 
         //add item to currentOrder
         currentOrder = [
@@ -63,22 +62,21 @@ const ConfiguratorScreen = (props: any) => {
         return currentOrder;
     };
 
-  const onBottleChange = (props: any) => {
-    if (props.size !== size) return (size = props.size);
-    if (props.enteredText !== enteredText)
-      return (enteredText = props.enteredText);
-    if (props.color !== color) return (color = props.color);
-  };
+    const onBottleChange = (props: any) => {
+        if (props.size !== size) return size = props.size;
+        if (props.enteredText !== enteredText) return enteredText = props.enteredText;
+        if (props.color !== color) return color = props.color;
+    }
 
-  return (
-    <section>
-      {/*content/data: The Ingredients List (the select fields of which the user can choose from)*/}
-      <div className={"flex-wrapper"}>
-        <ConfigurationPanel onChange={onChange} onSubmit={onSubmit} />
-        <ConfigurationBottle onBottleChange={onBottleChange} />
-      </div>
-    </section>
-  );
+    return (
+        <section>
+            {/*content/data: The Ingredients List (the select fields of which the user can choose from)*/}
+            <div className={"flex-wrapper"}>
+                <ConfigurationPanel onChange={onChange} onSubmit={onSubmit}/>
+                <ConfigurationBottle onBottleChange={onBottleChange}/>
+            </div>
+        </section>
+    );
 };
 
 export default ConfiguratorScreen;
