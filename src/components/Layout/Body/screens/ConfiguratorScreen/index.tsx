@@ -55,8 +55,6 @@ const ConfiguratorScreen = (props: any) => {
     const onSubmit = () => {
         const data = [currentOrder, size, enteredText, color]
         props.updateOrders(data);
-        currentOrder = [];
-        return currentOrder;
     };
 
     const onBottleChange = (props: any) => {
