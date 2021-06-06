@@ -1,22 +1,24 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./OrderOverview.module.css";
 
 const OrderOverview = (props: any) => {
-    return (
-        <div>
-            <Link
-                to={"/shopping-cart"}
-                className={`${classes.submitButton}`}
-
-                onClick={() => {
-                    props.onSubmit();
-                    //props.updateResetValue();
-                    //props.resetNavPoints();
-                    //todo: show success banner
-                }}>Zum Warenkorb hinzufügen</Link>
-        </div>
-    )
+  return (
+    <div>
+      <Link
+        to={"/shopping-cart"}
+        className={`${classes.submitButton}`}
+        onClick={() => {
+          props.onSubmit();
+          //props.updateResetValue();
+          //props.resetNavPoints();
+          //todo: show success banner
+        }}
+      >
+        Zum Warenkorb hinzufügen
+      </Link>
+    </div>
+  );
 };
 
 export default OrderOverview;
