@@ -103,14 +103,15 @@ const ShoppingCart = (props: any) => {
           Der Gesamtpreis beträgt: {`${(finalPrice + basePrice).toFixed(2)}  €`}
         </p>
 
-        {deliveryData.length > 0 ? (
+        {deliveryData.length === 0 ? (
           <button
             className={`${classes.submitButton}`}
             onClick={() => {
               props.changeShowSuccess();
+              window.scrollTo(0, 0);
               setTimeout(function () {
-                window.location.href = "/";
-              }, 4500);
+                window.location.reload();
+              }, 4100);
             }}
           >
             Jetzt kaufen!
