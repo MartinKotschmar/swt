@@ -23,9 +23,6 @@ const IngredientsList = (props: any) => {
                 }
                 const category = element.categories.filter((e: any) => e !== 'Komponente' && e !== 'Zutat');
                 const key = "Ingredient_" + category + "_" + i;
-                console.log("val " + radioValue);
-                console.log("now " + key);
-                console.log((setType === "radio" && radioValue === key));
                 return (
                     <IngredientItem
                         name={setType === "radio" ? category[0] : ""}

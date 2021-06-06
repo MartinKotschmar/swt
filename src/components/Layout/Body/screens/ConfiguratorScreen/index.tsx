@@ -30,9 +30,7 @@ const ConfiguratorScreen = (props: any) => {
                 if (id === currentOrder[i].id) {
                     return currentOrder.splice(i, 1);
                 }
-
                 if (name !== "" && name === currentOrder[i].name) {
-                    console.log(name);
                     currentOrder.splice(i, 1);
                 }
 
@@ -51,7 +49,6 @@ const ConfiguratorScreen = (props: any) => {
                 name: name
             },
         ];
-        console.log(currentOrder);
         return currentOrder;
     };
 
