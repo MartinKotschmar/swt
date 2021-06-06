@@ -11,7 +11,6 @@ const DeliveryDetails = (props: any) => {
 
     const optionChangeHandler = () => {
         setStatus(false);
-        console.log(status);
     };
 
     const submitClickHandler: any = (e: any) => {

@@ -5,13 +5,14 @@ import ModalOverlay from "./ModalOverlay";
 import { useCookies } from 'react-cookie';
 
 const AgeCheckModal = (props: any) => {
-
     const [active, setActive] = useState(props.active);
     const [cookies, setCookie] = useCookies(['ageCheck']);
 
     const backdropPortalRoot = document.getElementById("backdrop-root");
     const modalPortalRoot = document.getElementById("overlay-root");
 
+    console.log(cookies.ageCheck);
+    console.log(!cookies.ageCheck);
 
     const onClick = (userInput: string) => {
         if (userInput === "confirm") {
@@ -23,7 +24,7 @@ const AgeCheckModal = (props: any) => {
         }
     };
 
-    return backdropPortalRoot && modalPortalRoot && !cookies.ageCheck? (
+    return (backdropPortalRoot && modalPortalRoot && !cookies.ageCheck)? (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop active={active}/>, backdropPortalRoot)}
             {ReactDOM.createPortal(

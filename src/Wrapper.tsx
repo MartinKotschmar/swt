@@ -63,7 +63,7 @@ const Wrapper = () => {
           </Route> */}
         </Switch>
 
-        <AgeCheckModal active={false} />
+        <AgeCheckModal active={true} />
       </div>
 
       <Footer />
