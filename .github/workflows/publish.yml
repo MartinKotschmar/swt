@@ -3,7 +3,7 @@ name: Publish CI success
 on:
   workflow_run:
     workflows: ["Node 14.x CI with NPM"]
-    branches: ['main', 'dev']
+    branches: [ main ]
     types:
       - completed
 
